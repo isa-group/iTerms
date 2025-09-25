@@ -1,0 +1,69 @@
+{
+    "PROVIDER": "ELSEVIER",
+    "SOURCE": "https://dev.elsevier.com/api_service_agreement.html",
+    "TITLE": "API SERVICE AGREEMENT",
+    "DESCRIPTION": "This Agreement governs the use of Elsevier's API services and replaces previous versions",
+    "DATE": "2017",
+    "USE_CASE_DESCRIPTIONS": {
+        "use_case_1": {
+            "description": "You confirm that You have the right and authority to enter into this Agreement."
+        },
+        "use_case_2": {
+            "description": "You accept and agree to the terms and conditions of this Agreement and the terms and conditions of the agreement between Elsevier and Your institution, company or organization or if not applicable, as agreed between Elsevier and You for Your specific use case."
+        },
+        "use_case_3": {
+            "description": "2 Elsevier reserves the right, at its sole discretion, to change the terms of this Agreement at any time with reasonable advance notice given to You."
+        },
+        "use_case_4": {
+            "description": "When these changes are made, Elsevier will make a new copy of the Agreement available on the API Service’s web site."
+        },
+        "use_case_5": {
+            "description": "Elsevier will also post a notification on the API Service's web site describing the modifications made."
+        },
+        "use_case_6": {
+            "description": "Elsevier grants you a limited license to use its APIs and related materials to develop and integrate your application, subject to usage policies, with all notices delivered in writing to the email listed in the developer portal."
+        },
+        "use_case_7": {
+            "description": "Elsevier retains the right to immediately suspend the Application's access to the API Service if, in Elsevier's sole judgment: the Application's usage of the API Service negatively affects the availability or performance of the API Service, or the Application is in breach of the API's Content Usage Policies on http://dev.elsevier.com/policy.html"
+        },
+        "use_case_8": {
+            "description": "2.2 In a situation of breach of the terms and conditions of this Agreement, Elsevier reserves the right to block, change, suspend, remove or disable access to the APIs and any of its services at any time upon reasonable notice to Developer."
+        },
+        "use_case_9": {
+            "description": "2.3 Elsevier reserves the right to deactivate API Keys that have not been used to access the APIs for 90 days."
+        },
+        "use_case_10": {
+            "description": "3.1.1 the Application will not use Elsevier content other than allowed by the API's Content Usage Policies on http://dev.elsevier.com/policy.html;"
+        },
+        "use_case_11": {
+            "description": "3.1.2 the Application will use the API Key issued by Elsevier upon execution of this Agreement, and no other API Key issued for use by other applications and/or to other developers;"
+        },
+        "use_case_12": {
+            "description": "3.1.3 the Application will avoid excessive and unnecessary use of the API Service that may cause a performance degradation of the API Service"
+        },
+        "use_case_13": {
+            "description": "3.1.4 the Developer acknowledges that all right, title and interest in and to the Elsevier content, and any derivative works based upon the Elsevier content, remain with Elsevier and its suppliers, except as expressly set forth in this Agreement, and that the unauthorized redistribution of the Elsevier content is not permitted."
+        },
+        "use_case_14": {
+            "description": "3.2 The Developer will be solely responsible and hold Elsevier harmless for all costs, expenses, losses and liabilities incurred, and activities undertaken by the Developer in connection with the API Service."
+        },
+        "use_case_15": {
+            "description": "3.3 Developer shall obtain written permission in advance from Elsevier to use Elsevier's trademarks, logos or other brand features for promoting the Developer's Application. Any press releases regarding this Agreement or the relationship of the parties shall require the prior approval of the parties."
+        },
+        "use_case_16": {
+            "description": "3.4 The Developer shall not display any advertising inside the Application or use any content as obtained via the API outside the Application, unless permitted by Elsevier in writing."
+        },
+        "use_case_17": {
+            "description": "API service is provided on an 'as is' and 'as available'basis without warranties of any kind"
+        },
+        "use_case_18": {
+            "description": "Except as expressly stated in this Agreement, each party disclaims all liability to the other party in connection with the parties' performance of this Agreement and in no event will the infringing party be liable to the other party for special, indirect or consequential damages including but not limited to loss of profits, loss of business or unfitness for user purposes"
+        },
+        "use_case_19": {
+            "description": "The term of this Agreement shall commence on the date on which the Developer has accepted this Agreement and shall continue until either party terminates the Agreement in writing or the API Key is deactivated by Elsevier."
+        },
+        "use_case_20": {
+            "description": "This Agreement will be governed by and construed in accordance with the laws of The Netherlands, and the parties irrevocably consent to the exclusive jurisdiction of the courts of The Netherlands with respect to any action or suit arising out of or pertaining to this Agreement (except where local law requires)."
+        }
+    }
+}
