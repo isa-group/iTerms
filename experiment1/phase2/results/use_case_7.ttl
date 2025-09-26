@@ -1,0 +1,53 @@
+@prefix : <http://example.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@base <http://example.com> .
+
+:agreement01 a odrl:Agreement, odrl:Asset ;
+    odrl:profile <https://w3id.org/tosl/> ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "Elsevier may immediately suspend an Application’s access to the API Service if, in Elsevier’s judgment, the Application’s use negatively affects availability or performance, or if the Application breaches the API Content Usage Policies."^^xsd:string ;
+    dcterms:creator "ELSEVIER"^^xsd:string ;
+    dcterms:rightsHolder :Elsevier ;
+    dcterms:issued "2017-01-01"^^xsd:date ;
+    odrl:permission :permission01 ;
+    odrl:assigner :Elsevier .
+
+:Elsevier a tosl:Provider ;
+    foaf:name "ELSEVIER" ;
+    foaf:homepage <https://dev.elsevier.com/> .
+
+:apiAccess a tosl:Service ;
+    dcterms:description "Access to Elsevier's API Service."^^xsd:string .
+
+:permission01 a odrl:Permission ;
+    dcterms:description "Elsevier may immediately suspend or terminate the Application’s access to the API Service if usage degrades availability/performance or if the Application breaches the API Content Usage Policies."^^xsd:string ;
+    odrl:action tosl:terminate ;
+    odrl:target :apiAccess ;
+    odrl:assignee :Elsevier ;
+    odrl:constraint [
+        a odrl:LogicalConstraint ;
+        odrl:or (
+            [
+                a odrl:Constraint ;
+                odrl:leftOperand tosl:effect ;
+                odrl:operator odrl:eq ;
+                odrl:rightOperand tosl:degradation
+            ]
+            [
+                a odrl:Constraint ;
+                odrl:leftOperand tosl:compliance ;
+                odrl:operator odrl:neq ;
+                odrl:rightOperand <http://dev.elsevier.com/policy.html>
+            ]
+        )
+    ] .

@@ -1,0 +1,56 @@
+@prefix : <http://example.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@base <http://example.com> .
+
+:ELSEVIER a tosl:Provider ;
+    dcterms:description "ELSEVIER is the provider issuing API Keys for use under the API Service Agreement."^^xsd:string ;
+    foaf:name "ELSEVIER"^^xsd:string .
+
+:customer a tosl:Customer ;
+    dcterms:description "This party represents the developer/customer using Elsevier APIs under the Agreement."^^xsd:string .
+
+:application a odrl:Asset ;
+    dcterms:description "The Application registered by the customer under this Agreement."^^xsd:string .
+
+:apiKey a odrl:Asset ;
+    dcterms:description "API Key issued by Elsevier for the registered Application under this Agreement."^^xsd:string .
+
+:agreement01 a odrl:Agreement ;
+    odrl:profile <https://w3id.org/tosl/> ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "Clause 3.1.2: The Application will use the API Key issued by Elsevier upon execution of this Agreement, and no other API Key issued for use by other applications and/or to other developers."^^xsd:string ;
+    dcterms:creator "ELSEVIER"^^xsd:string ;
+    dcterms:rightsHolder :ELSEVIER ;
+    dcterms:issued "2017-01-01"^^xsd:date ;
+    odrl:obligation :obligation01 ;
+    odrl:assigner :ELSEVIER .
+
+:obligation01 a odrl:Duty ;
+    dcterms:description "The customer must use only the API Key issued by Elsevier for the registered Application under this Agreement, and not use any API Key issued for other applications or to other developers."^^xsd:string ;
+    odrl:action odrl:use ;
+    odrl:target :apiKey ;
+    odrl:assignee :customer ;
+    odrl:constraint [
+        a odrl:Constraint ;
+        dcterms:description "The API Key used must be the one issued for the registered Application."^^xsd:string ;
+        odrl:leftOperand odrl:product ;
+        odrl:operator odrl:eq ;
+        odrl:rightOperand :application
+    ] ,
+    [
+        a odrl:Constraint ;
+        dcterms:description "The API Key used must be issued to the customer (and not to other developers)."^^xsd:string ;
+        odrl:leftOperand odrl:recipient ;
+        odrl:operator odrl:eq ;
+        odrl:rightOperand :customer
+    ] .
