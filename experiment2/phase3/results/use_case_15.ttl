@@ -1,0 +1,61 @@
+@prefix : <http://example.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@base <http://example.com> .
+
+:ELSEVIER a tosl:Provider ;
+    dcterms:description "Elsevier B.V., the provider and assigner of this API Service Agreement."^^xsd:string ;
+    foaf:name "ELSEVIER" ;
+    foaf:homepage <https://www.elsevier.com/> .
+
+:developer a tosl:BusinessCustomer ;
+    dcterms:description "The application developer using Elsevier APIs under this Agreement."^^xsd:string ;
+    foaf:name "Developer" .
+
+:pressReleases a odrl:Asset ;
+    dcterms:description "Press releases regarding this Agreement or the relationship of the parties."^^xsd:string .
+
+:agreement01 a odrl:Agreement ;
+    odrl:profile <https://w3id.org/tosl/> ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "Press releases about this Agreement or the relationship of the parties require prior approval of the parties."^^xsd:string ;
+    dcterms:creator "Elsevier"^^xsd:string ;
+    dcterms:rightsHolder :ELSEVIER ;
+    dcterms:issued "2017"^^xsd:gYear ;
+    odrl:obligation :ob_press_dev, :ob_press_elsevier ;
+    odrl:assigner :ELSEVIER .
+
+:ob_press_dev a odrl:Duty ;
+    dcterms:description "Developer must obtain prior approval of the parties before issuing any press releases regarding this Agreement or the relationship of the parties."^^xsd:string ;
+    odrl:action odrl:obtainConsent ;
+    odrl:target :pressReleases ;
+    odrl:assignee :developer ;
+    odrl:constraint [
+        a odrl:Constraint ;
+        dcterms:description "Approval must be obtained from both parties."^^xsd:string ;
+        odrl:leftOperand odrl:recipient ;
+        odrl:operator odrl:isAllOf ;
+        odrl:rightOperand ( :developer :ELSEVIER )
+    ] .
+
+:ob_press_elsevier a odrl:Duty ;
+    dcterms:description "Elsevier must obtain prior approval of the parties before issuing any press releases regarding this Agreement or the relationship of the parties."^^xsd:string ;
+    odrl:action odrl:obtainConsent ;
+    odrl:target :pressReleases ;
+    odrl:assignee :ELSEVIER ;
+    odrl:constraint [
+        a odrl:Constraint ;
+        dcterms:description "Approval must be obtained from both parties."^^xsd:string ;
+        odrl:leftOperand odrl:recipient ;
+        odrl:operator odrl:isAllOf ;
+        odrl:rightOperand ( :developer :ELSEVIER )
+    ] .
