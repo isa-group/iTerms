@@ -1,0 +1,35 @@
+@prefix : <http://example.com/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:apiServiceAgreement a odrl:Agreement, odrl:Asset ;
+    odrl:profile <https://w3id.org/tosl/> ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:creator "ELSEVIER"^^xsd:string ;
+    dcterms:rightsHolder :ELSEVIER ;
+    dcterms:issued "2017"^^xsd:date ;
+    odrl:permission :permission01 ;
+    odrl:assigner :ELSEVIER .
+
+:ELSEVIER a tosl:Provider ;
+    dcterms:description "ELSEVIER"^^xsd:string .
+
+:apiKeys a tosl:Service ;
+    dcterms:description "API Keys" .
+
+:permission01 a odrl:Permission ;
+    dcterms:description "Elsevier reserves the right to deactivate API Keys that have not been used to access the APIs for 90 days." ;
+    odrl:action odrl:remove ;
+    odrl:target :apiKeys ;
+    odrl:assignee :ELSEVIER ;
+    odrl:constraint [
+        a odrl:Constraint ;
+        dcterms:description "API Keys that have not been used to access the APIs for 90 days." ;
+        odrl:leftOperand odrl:elapsedTime ;
+        odrl:operator odrl:gteq ;
+        odrl:rightOperand "P90D"^^xsd:duration
+    ] .

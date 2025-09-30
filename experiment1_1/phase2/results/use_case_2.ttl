@@ -1,0 +1,11 @@
+@prefix : <http://example.com/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:obligation01 a odrl:Duty ;
+    dcterms:description "You accept and agree to the terms and conditions of this Agreement and the terms and conditions of the agreement between Elsevier and Your institution, company or organization or if not applicable, as agreed between Elsevier and You for Your specific use case." ;
+    odrl:action tosl:consent ;
+    odrl:target :agreement ;
+    odrl:assignee :customer .

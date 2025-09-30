@@ -1,0 +1,27 @@
+@prefix : <http://example.com/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:agreement a odrl:Agreement, odrl:Asset ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:creator "ELSEVIER"^^xsd:string ;
+    dcterms:issued "2017"^^xsd:date .
+
+:permission a odrl:Permission ;
+    dcterms:description "Elsevier reserves the right, at its sole discretion, to change the terms of this Agreement at any time with reasonable advance notice given to You." ;
+    odrl:action tosl:terminate ;
+    odrl:target :agreement ;
+    odrl:assignee :provider ;
+    odrl:constraint [
+        a odrl:Constraint ;
+        odrl:leftOperand odrl:delayPeriod ;
+        odrl:operator odrl:gteq ;
+        odrl:rightOperand "P0D"^^xsd:duration
+    ] .
+
+:provider a tosl:Provider ;
+    dcterms:description "ELSEVIER"^^xsd:string .

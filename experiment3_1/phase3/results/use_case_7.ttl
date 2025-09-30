@@ -1,0 +1,51 @@
+@prefix : <http://example.com/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:prohibition01 a odrl:Prohibition ;
+    dcterms:description "Elsevier retains the right to immediately suspend the Application's access to the API Service if, in Elsevier's sole judgment: the Application's usage of the API Service negatively affects the availability or performance of the API Service, or the Application is in breach of the API's Content Usage Policies on http://dev.elsevier.com/policy.html" ;
+    odrl:action odrl:use ;
+    odrl:target :apiService ;
+    odrl:assignee :application ;
+    odrl:constraint [
+        a odrl:LogicalConstraint ;
+        odrl:or (
+            [
+                a odrl:Constraint ;
+                odrl:leftOperand odrl:effect ;
+                odrl:operator odrl:isAnyOf ;
+                odrl:rightOperand ( "availability" "performance" )
+            ]
+            [
+                a odrl:Constraint ;
+                odrl:leftOperand tosl:compliance ;
+                odrl:operator odrl:neq ;
+                odrl:rightOperand :contentUsagePolicies
+            ]
+        )
+    ] ;
+    odrl:remedy [
+        a odrl:Duty ;
+        odrl:action odrl:suspend ;
+        odrl:target :apiService ;
+        odrl:assignee :elsevier ;
+        odrl:informedParty :application
+    ] .
+
+:apiService a tosl:Service ;
+    dcterms:description "API Service provided by Elsevier" .
+
+:elsevier a tosl:Provider ;
+    dcterms:description "Elsevier is a global information analytics business that helps institutions and professionals progress science, advance healthcare and improve performance."^^xsd:string ;
+    foaf:name "Elsevier" ;
+    foaf:homepage <https://www.elsevier.com/> ;
+    odrl:assignerOf :apiService .
+
+:application a tosl:Customer ;
+    dcterms:description "Application using the Elsevier API Service" .
+
+:contentUsagePolicies a odrl:Asset ;
+    dcterms:description "API's Content Usage Policies on http://dev.elsevier.com/policy.html" .
