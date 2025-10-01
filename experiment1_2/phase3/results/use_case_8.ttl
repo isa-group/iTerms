@@ -1,0 +1,49 @@
+@prefix : <http://example.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@base <http://example.com> .
+
+:Elsevier a tosl:Provider ;
+    foaf:name "ELSEVIER" .
+
+:developer a tosl:Customer .
+
+:apis a tosl:Service ;
+    dcterms:title "APIs and services" .
+
+:agreement01 a odrl:Agreement ;
+    odrl:profile <https://w3id.org/tosl/> ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:issued "2017"^^xsd:gYear ;
+    dcterms:creator "ELSEVIER"^^xsd:string ;
+    odrl:assigner :Elsevier ;
+    odrl:permission :permission01 .
+
+:permission01 a odrl:Permission ;
+    dcterms:description "In a situation of breach of the terms and conditions of this Agreement, Elsevier reserves the right to block, change, suspend, remove or disable access to the APIs and any of its services at any time upon reasonable notice to Developer."^^xsd:string ;
+    odrl:action tosl:terminate ;
+    odrl:target :apis ;
+    odrl:assignee :Elsevier ;
+    odrl:constraint [
+        a odrl:Constraint ;
+        odrl:leftOperand tosl:effect ;
+        odrl:operator odrl:eq ;
+        odrl:rightOperand tosl:breachOfContract
+    ] ;
+    odrl:duty [
+        a odrl:Duty ;
+        dcterms:description "Provide reasonable notice to the developer before blocking, changing, suspending, removing or disabling access."^^xsd:string ;
+        odrl:action odrl:inform ;
+        odrl:target :apis ;
+        odrl:assignee :Elsevier ;
+        odrl:informedParty :developer
+    ] .

@@ -1,0 +1,21 @@
+@prefix : <http://example.com/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@base <http://example.com> .
+
+:Elsevier a tosl:Provider ;
+    dcterms:title "ELSEVIER" .
+
+:Developer a tosl:BusinessCustomer .
+
+:apiService a tosl:Service ;
+    dcterms:description "API Service" .
+
+:liability01 a tosl:Liability ;
+    dcterms:description "The Developer will be solely responsible and hold Elsevier harmless for all costs, expenses, losses and liabilities incurred, and activities undertaken by the Developer in connection with the API Service."^^xsd:string ;
+    tosl:liableParty :Developer ;
+    tosl:targetParty :Elsevier ;
+    rdf:value tosl:anyLiability, tosl:anyLoss .

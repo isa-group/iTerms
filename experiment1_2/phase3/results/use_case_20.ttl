@@ -1,0 +1,42 @@
+@prefix : <http://example.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@base <http://example.com> .
+
+:Elsevier a tosl:Provider .
+
+:customer a tosl:Customer .
+
+:netherlandsLaw a tosl:Law .
+
+:netherlandsCourts a tosl:Jurisdiction .
+
+:agreement01 a odrl:Agreement ;
+    odrl:profile <https://w3id.org/tosl/> ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:issued "2017"^^xsd:gYear ;
+    dcterms:creator "ELSEVIER"^^xsd:string ;
+    dcterms:rightsHolder :Elsevier ;
+    tosl:onDispute :litigation01 ;
+    odrl:assigner :Elsevier .
+
+:litigation01 a tosl:Litigation ;
+    dcterms:description "This Agreement will be governed by and construed in accordance with the laws of The Netherlands, and the parties irrevocably consent to the exclusive jurisdiction of the courts of The Netherlands with respect to any action or suit arising out of or pertaining to this Agreement (except where local law requires)"^^xsd:string ;
+    tosl:targetParty :customer ;
+    tosl:takesPlaceIn :netherlandsCourts ;
+    tosl:governedBy :netherlandsLaw ;
+    tosl:condition [
+        a odrl:Constraint ;
+        odrl:leftOperand tosl:compliance ;
+        odrl:operator odrl:neq ;
+        odrl:rightOperand "local law requirement"
+    ] .

@@ -1,0 +1,242 @@
+[
+  {
+    "file": "use_case_1.ttl",
+    "outfile": "phase3\\results\\use_case_1.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.2853355407714844,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_2.ttl",
+    "outfile": "phase3\\results\\use_case_2.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.2504851818084717,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_3.ttl",
+    "outfile": "phase3\\results\\use_case_3.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.42853498458862305,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_4.ttl",
+    "outfile": "phase3\\results\\use_case_4.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.3523373603820801,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_5.ttl",
+    "outfile": "phase3\\results\\use_case_5.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.2703208923339844,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_6.ttl",
+    "outfile": "phase3\\results\\use_case_6.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.604912519454956,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_7.ttl",
+    "outfile": "phase3\\results\\use_case_7.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.5093386173248291,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_8.ttl",
+    "outfile": "phase3\\results\\use_case_8.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.5038557052612305,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_9.ttl",
+    "outfile": "phase3\\results\\use_case_9.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.23421883583068848,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_10.ttl",
+    "outfile": "phase3\\results\\use_case_10.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.21935343742370605,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_11.ttl",
+    "outfile": "phase3\\results\\use_case_11.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.25879359245300293,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_12.ttl",
+    "outfile": "phase3\\results\\use_case_12.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.8098750114440918,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_13.ttl",
+    "outfile": "phase3\\results\\use_case_13.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.2854175567626953,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_14.ttl",
+    "outfile": "phase3\\results\\use_case_14.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.2078688144683838,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_15.ttl",
+    "outfile": "phase3\\results\\use_case_15.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.46024107933044434,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_16.ttl",
+    "outfile": "phase3\\results\\use_case_16.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.5114197731018066,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_17.ttl",
+    "outfile": "phase3\\results\\use_case_17.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.2289271354675293,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_18.ttl",
+    "outfile": "phase3\\results\\use_case_18.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.39672112464904785,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_19.ttl",
+    "outfile": "phase3\\results\\use_case_19.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.2712364196777344,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_20.ttl",
+    "outfile": "phase3\\results\\use_case_20.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.22440028190612793,
+      "violations": []
+    }
+  }
+]
