@@ -1,0 +1,62 @@
+@prefix : <http://example.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@base <http://example.com> .
+
+:Elsevier a tosl:Provider .
+
+:developer a tosl:BusinessCustomer .
+
+:brandFeatures a odrl:Asset ;
+    dcterms:description "Elsevier's trademarks, logos or other brand features" .
+
+:application a odrl:Asset ;
+    dcterms:description "The Developer's Application" .
+
+:pressReleases a odrl:Asset ;
+    dcterms:description "press releases regarding this Agreement or the relationship of the parties" .
+
+:duty01 a odrl:Duty ;
+    dcterms:description "Obtain written permission in advance from Elsevier" ;
+    odrl:action odrl:obtainConsent ;
+    odrl:target :brandFeatures ;
+    odrl:assignee :developer .
+
+:duty02 a odrl:Duty ;
+    dcterms:description "Obtain prior approval of the parties" ;
+    odrl:action odrl:obtainConsent ;
+    odrl:target :pressReleases ;
+    odrl:assignee :developer .
+
+:permission01 a odrl:Permission ;
+    dcterms:description "Developer shall obtain written permission in advance from Elsevier to use Elsevier's trademarks, logos or other brand features for promoting the Developer's Application." ;
+    odrl:action odrl:use ;
+    odrl:target :brandFeatures ;
+    odrl:assignee :developer ;
+    odrl:duty :duty01 .
+
+:permission02 a odrl:Permission ;
+    dcterms:description "Any press releases regarding this Agreement or the relationship of the parties shall require the prior approval of the parties." ;
+    odrl:action tosl:publish ;
+    odrl:target :pressReleases ;
+    odrl:assignee :developer ;
+    odrl:duty :duty02 .
+
+:agreement01 a odrl:Agreement, odrl:Asset ;
+    odrl:profile <https://w3id.org/tosl/> ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "Clause 3.3 of the API Service Agreement."^^xsd:string ;
+    dcterms:creator "ELSEVIER"^^xsd:string ;
+    dcterms:rightsHolder :Elsevier ;
+    dcterms:issued "2017-01-01"^^xsd:date ;
+    odrl:permission :permission01, :permission02 ;
+    odrl:assigner :Elsevier .

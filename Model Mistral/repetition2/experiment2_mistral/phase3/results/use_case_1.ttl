@@ -1,0 +1,16 @@
+@prefix : <http://example.com/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:customer a tosl:Customer ;
+    dcterms:description "This party represents the consumer in the context of the OpenAI services Terms of Use" .
+
+:agreement a odrl:Asset .
+
+:obligation01 a odrl:Duty ;
+    dcterms:description "You confirm that You have the right and authority to enter into this Agreement." ;
+    odrl:action odrl:obtainConsent ;
+    odrl:target :agreement ;
+    odrl:assignee :customer .

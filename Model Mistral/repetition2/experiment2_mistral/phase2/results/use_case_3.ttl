@@ -1,0 +1,36 @@
+@prefix : <http://example.com/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:agreement a odrl:Agreement, odrl:Asset ;
+    odrl:profile <https://w3id.org/tosl/> ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "API SERVICE AGREEMENT"^^xsd:string;
+    dcterms:creator "ELSEVIER"^^xsd:string ;
+    dcterms:rightsHolder :ELSEVIER ;
+    dcterms:issued "2017"^^xsd:date ;
+    odrl:permission :permission01 ;
+    odrl:assigner :ELSEVIER .
+
+:ELSEVIER a tosl:Provider ;
+    dcterms:description "ELSEVIER"^^xsd:string ;
+    foaf:name "ELSEVIER" ;
+    foaf:homepage <https://www.elsevier.com/> ;
+    odrl:assignerOf :agreement .
+
+:permission01 a odrl:Permission ;
+    dcterms:description "Elsevier reserves the right, at its sole discretion, to change the terms of this Agreement at any time with reasonable advance notice given to You." ;
+    odrl:action tosl:terminate ;
+    odrl:target :agreement ;
+    odrl:assignee :ELSEVIER ;
+    odrl:constraint [
+        a odrl:Constraint ;
+        dcterms:description "Reasonable advance notice must be provided before changing the terms of the Agreement." ;
+        odrl:leftOperand odrl:delayPeriod ;
+        odrl:operator odrl:gteq ;
+        odrl:rightOperand "P0D"^^xsd:duration
+    ] .

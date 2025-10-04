@@ -1,0 +1,30 @@
+@prefix : <http://example.com/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:obligation01 a odrl:Duty ;
+    dcterms:description "When these changes are made, Elsevier will make a new copy of the Agreement available on the API Service’s web site." ;
+    odrl:action odrl:inform ;
+    odrl:target :agreement ;
+    odrl:assignee :Elsevier ;
+    odrl:constraint [
+        a odrl:Constraint ;
+        odrl:leftOperand odrl:event ;
+        odrl:operator odrl:eq ;
+        odrl:rightOperand :agreementChange
+    ] .
+
+:agreement a odrl:Asset ;
+    dcterms:description "API Service Agreement" .
+
+:Elsevier a tosl:Provider ;
+    dcterms:description "Elsevier is a global information and analytics company specializing in scientific, technical, and medical content."^^xsd:string ;
+    foaf:name "Elsevier" ;
+    foaf:homepage <https://www.elsevier.com/> ;
+    odrl:assignerOf :agreement .
+
+:agreementChange a odrl:Event ;
+    dcterms:description "Event when changes are made to the Agreement" .

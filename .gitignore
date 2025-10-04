@@ -1,6 +1,1 @@
-experiment1_mistral/key.py
-experiment2_mistral/key.py
-experiment3_mistral/key.py
-experiment1_grok/key.py
-experiment2_grok/key.py
-experiment3_grok/key.py
+key.py

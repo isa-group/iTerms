@@ -1,0 +1,55 @@
+@prefix : <http://example.com/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:agreement01 a odrl:Agreement, odrl:Asset ;
+    odrl:profile <https://w3id.org/tosl/> ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "The term of this Agreement shall commence on the date on which the Developer has accepted this Agreement and shall continue until either party terminates the Agreement in writing or the API Key is deactivated by Elsevier."^^xsd:string ;
+    dcterms:creator "ELSEVIER"^^xsd:string ;
+    dcterms:rightsHolder :ELSEVIER ;
+    dcterms:issued "2017"^^xsd:date ;
+    odrl:permission :permission01 ;
+    odrl:assigner :ELSEVIER .
+
+:ELSEVIER a tosl:Provider ;
+    dcterms:description "Elsevier is a global information and analytics company specializing in scientific, technical, and medical content."^^xsd:string ;
+    foaf:name "Elsevier" ;
+    foaf:homepage <https://www.elsevier.com/> ;
+    odrl:assignerOf :agreement01 .
+
+:developer a tosl:Customer ;
+    dcterms:description "The Developer is the entity that accepts the Agreement and uses the API services."^^xsd:string .
+
+:permission01 a odrl:Permission ;
+    dcterms:description "The term of this Agreement shall commence on the date on which the Developer has accepted this Agreement and shall continue until either party terminates the Agreement in writing or the API Key is deactivated by Elsevier." ;
+    odrl:action tosl:consent ;
+    odrl:target :agreement01 ;
+    odrl:assignee :developer ;
+    odrl:constraint [
+        a odrl:LogicalConstraint ;
+        odrl:or (
+            [
+                a odrl:Constraint ;
+                odrl:leftOperand tosl:termination ;
+                odrl:operator odrl:eq ;
+                odrl:rightOperand :terminationInWriting
+            ]
+            [
+                a odrl:Constraint ;
+                odrl:leftOperand tosl:termination ;
+                odrl:operator odrl:eq ;
+                odrl:rightOperand :apiKeyDeactivation
+            ]
+        )
+    ] .
+
+:terminationInWriting a odrl:Action ;
+    dcterms:description "Termination of the Agreement in writing by either party." .
+
+:apiKeyDeactivation a odrl:Action ;
+    dcterms:description "Deactivation of the API Key by Elsevier." .

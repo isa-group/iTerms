@@ -1,0 +1,51 @@
+@prefix : <http://example.com/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:agreement01 a odrl:Agreement, odrl:Asset ;
+    odrl:profile <https://w3id.org/tosl/> ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "Elsevier grants you a limited license to use its APIs and related materials to develop and integrate your application, subject to usage policies, with all notices delivered in writing to the email listed in the developer portal."^^xsd:string ;
+    dcterms:creator "ELSEVIER"^^xsd:string ;
+    dcterms:rightsHolder :Elsevier ;
+    dcterms:issued "2017"^^xsd:date ;
+    odrl:permission :permission01 ;
+    odrl:assigner :Elsevier .
+
+:Elsevier a tosl:Provider ;
+    dcterms:description "Elsevier is a global information analytics business that helps institutions and professionals progress science, advance healthcare, and improve performance."^^xsd:string ;
+    foaf:name "Elsevier" ;
+    foaf:homepage <https://www.elsevier.com/> ;
+    odrl:assignerOf :apiService .
+
+:apiService a tosl:Service ;
+    dcterms:description "API services provided by Elsevier for application development and integration." .
+
+:permission01 a odrl:Permission ;
+    dcterms:description "Elsevier grants you a limited license to use its APIs and related materials to develop and integrate your application, subject to usage policies, with all notices delivered in writing to the email listed in the developer portal." ;
+    odrl:action tosl:integrate ;
+    odrl:target :apiService ;
+    odrl:assignee :customer ;
+    odrl:constraint [
+        a odrl:Constraint ;
+        odrl:leftOperand tosl:compliance ;
+        odrl:operator odrl:eq ;
+        odrl:rightOperand :usagePolicies
+    ] ;
+    odrl:duty [
+        a odrl:Duty ;
+        odrl:action odrl:inform ;
+        odrl:target :apiService ;
+        odrl:assignee :Elsevier ;
+        odrl:informedParty :customer
+    ] .
+
+:customer a tosl:Customer ;
+    dcterms:description "This party represents the customer in the context of the Elsevier API Service Agreement" .
+
+:usagePolicies a odrl:Asset ;
+    dcterms:description "Usage policies governing the use of Elsevier's APIs and related materials." .

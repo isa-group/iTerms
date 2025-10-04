@@ -1,0 +1,14 @@
+@prefix : <http://example.com/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:litigation01 a tosl:Litigation ;
+    dcterms:description "This Agreement will be governed by and construed in accordance with the laws of The Netherlands, and the parties irrevocably consent to the exclusive jurisdiction of the courts of The Netherlands with respect to any action or suit arising out of or pertaining to this Agreement (except where local law requires)." ;
+    tosl:targetParty :customer ;
+    tosl:takesPlaceIn tosl:netherlandsCourts ;
+    tosl:governedBy tosl:netherlandsLaw .
+
+tosl:netherlandsCourts a tosl:Jurisdiction .
+tosl:netherlandsLaw a tosl:Law .

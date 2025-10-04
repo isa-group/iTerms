@@ -1,0 +1,58 @@
+@prefix : <http://example.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@base <http://example.com> .
+
+:agreement01 a odrl:Agreement, odrl:Asset ;
+    odrl:profile <https://w3id.org/tosl/> ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "API service is provided on an 'as is' and 'as available' basis without warranties of any kind."^^xsd:string ;
+    dcterms:creator "ELSEVIER"^^xsd:string ;
+    dcterms:rightsHolder :ELSEVIER ;
+    dcterms:issued "2017"^^xsd:date ;
+    odrl:permission :permission01 ;
+    odrl:assigner :ELSEVIER .
+
+:ELSEVIER a tosl:Provider ;
+    dcterms:description "ELSEVIER is a global information analytics business that helps institutions and professionals progress science, advance healthcare, and improve performance."^^xsd:string ;
+    foaf:name "ELSEVIER" ;
+    foaf:homepage <https://www.elsevier.com/> ;
+    odrl:assignerOf :apiService .
+
+:apiService a tosl:Service ;
+    dcterms:description "API service provided by ELSEVIER." .
+
+:permission01 a odrl:Permission ;
+    dcterms:description "API service is provided on an 'as is' and 'as available' basis without warranties of any kind." ;
+    odrl:action odrl:use ;
+    odrl:target :apiService ;
+    odrl:assignee :customer ;
+    odrl:constraint [
+        a odrl:LogicalConstraint ;
+        odrl:and (
+            [
+                a odrl:Constraint ;
+                odrl:leftOperand odrl:purpose ;
+                odrl:operator odrl:eq ;
+                odrl:rightOperand "as is"^^xsd:string
+            ]
+            [
+                a odrl:Constraint ;
+                odrl:leftOperand odrl:purpose ;
+                odrl:operator odrl:eq ;
+                odrl:rightOperand "as available"^^xsd:string
+            ]
+        )
+    ] .
+
+:customer a tosl:Customer ;
+    dcterms:description "This party represents the consumer in the context of the ELSEVIER API service agreement." .

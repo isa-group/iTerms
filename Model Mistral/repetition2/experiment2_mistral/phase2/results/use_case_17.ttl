@@ -1,0 +1,14 @@
+@prefix : <http://example.com/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:apiService a tosl:Service ;
+    dcterms:description "API service provided by ELSEVIER" .
+
+:liability01 a tosl:Liability ;
+    dcterms:description "API service is provided on an 'as is' and 'as available' basis without warranties of any kind" ;
+    tosl:liableParty :ELSEVIER ;
+    tosl:targetParty :customer, :businessCustomer ;
+    rdf:value tosl:serviceContent .
