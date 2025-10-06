@@ -1,0 +1,266 @@
+[
+  {
+    "file": "use_case_1.ttl",
+    "outfile": "phase3\\results\\use_case_1.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.12050819396972656,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_2.ttl",
+    "outfile": "phase3\\results\\use_case_2.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.8166139125823975,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_3.ttl",
+    "outfile": "phase3\\results\\use_case_3.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.30264854431152344,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_4.ttl",
+    "outfile": "phase3\\results\\use_case_4.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.23547148704528809,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_5.ttl",
+    "outfile": "phase3\\results\\use_case_5.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.1804060935974121,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_6.ttl",
+    "outfile": "phase3\\results\\use_case_6.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.26386308670043945,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_7.ttl",
+    "outfile": "phase3\\results\\use_case_7.ttl",
+    "passed": false,
+    "errors": 1,
+    "report": {
+      "syntax_valid": true,
+      "conforms": false,
+      "validation_time_sec": 0.3072092533111572,
+      "violations": [
+        {
+          "severity": "http://www.w3.org/ns/shacl#Violation",
+          "sourceShape": "n8f3b086c16c54e0991724f90c6fed091b6",
+          "sourceConstraintComponent": "http://www.w3.org/ns/shacl#OrConstraintComponent",
+          "focusNode": "n8f3b086c16c54e0991724f90c6fed091b3",
+          "valueNode": "http://www.w3.org/ns/odrl/2/effect",
+          "resultPath": "http://www.w3.org/ns/odrl/2/leftOperand",
+          "message": "A Constraint must have exactly one odrl:leftOperand."
+        }
+      ]
+    }
+  },
+  {
+    "file": "use_case_8.ttl",
+    "outfile": "phase3\\results\\use_case_8.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.26641225814819336,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_9.ttl",
+    "outfile": "phase3\\results\\use_case_9.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.29025864601135254,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_10.ttl",
+    "outfile": "phase3\\results\\use_case_10.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.7001616954803467,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_11.ttl",
+    "outfile": "phase3\\results\\use_case_11.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.32962512969970703,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_12.ttl",
+    "outfile": "phase3\\results\\use_case_12.ttl",
+    "passed": false,
+    "errors": 1,
+    "report": {
+      "syntax_valid": true,
+      "conforms": false,
+      "validation_time_sec": 0.2131340503692627,
+      "violations": [
+        {
+          "severity": "http://www.w3.org/ns/shacl#Violation",
+          "sourceShape": "n330d6c37a444425d8276edc949793801b4",
+          "sourceConstraintComponent": "http://www.w3.org/ns/shacl#OrConstraintComponent",
+          "focusNode": "n330d6c37a444425d8276edc949793801b3",
+          "valueNode": "http://www.w3.org/ns/odrl/2/usage",
+          "resultPath": "http://www.w3.org/ns/odrl/2/leftOperand",
+          "message": "A Constraint must have exactly one odrl:leftOperand."
+        }
+      ]
+    }
+  },
+  {
+    "file": "use_case_13.ttl",
+    "outfile": "phase3\\results\\use_case_13.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.3240621089935303,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_14.ttl",
+    "outfile": "phase3\\results\\use_case_14.ttl",
+    "passed": false,
+    "errors": 0,
+    "report": {
+      "syntax_valid": false,
+      "syntax_error": "at line 20 of <>:\nBad syntax (Prefix \"rdf:\" not bound) at ^ in:\n\"...b'bleParty :customer ;\\r\\n    tosl:targetParty :Elsevier ;\\r\\n    '^b'rdf:value tosl:anyLiability ;\\r\\n    odrl:target :apiService .'\""
+    }
+  },
+  {
+    "file": "use_case_15.ttl",
+    "outfile": "phase3\\results\\use_case_15.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.25757575035095215,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_16.ttl",
+    "outfile": "phase3\\results\\use_case_16.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.2752821445465088,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_17.ttl",
+    "outfile": "phase3\\results\\use_case_17.ttl",
+    "passed": false,
+    "errors": 0,
+    "report": {
+      "syntax_valid": false,
+      "syntax_error": "at line 23 of <>:\nBad syntax (Prefix \"rdf:\" not bound) at ^ in:\n\"...b';\\r\\n    tosl:targetParty :customer, :businessCustomer ;\\r\\n    '^b'rdf:value tosl:serviceContent .'\""
+    }
+  },
+  {
+    "file": "use_case_18.ttl",
+    "outfile": "phase3\\results\\use_case_18.ttl",
+    "passed": false,
+    "errors": 0,
+    "report": {
+      "syntax_valid": false,
+      "syntax_error": "at line 11 of <>:\nBad syntax (Prefix \"rdf:\" not bound) at ^ in:\n\"...b'ustomer ;\\r\\n    tosl:targetParty :Elsevier, :Customer ;\\r\\n    '^b'rdf:value tosl:anyIndirectDamage, tosl:anyLoss, tosl:legalCo'...\""
+    }
+  },
+  {
+    "file": "use_case_19.ttl",
+    "outfile": "phase3\\results\\use_case_19.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.30881285667419434,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_20.ttl",
+    "outfile": "phase3\\results\\use_case_20.ttl",
+    "passed": false,
+    "errors": 1,
+    "report": {
+      "syntax_valid": true,
+      "conforms": false,
+      "validation_time_sec": 0.19874811172485352,
+      "violations": [
+        {
+          "severity": "http://www.w3.org/ns/shacl#Violation",
+          "sourceShape": "n468c8aea5d034b079594df63e9f8def0b3",
+          "sourceConstraintComponent": "http://www.w3.org/ns/shacl#OrConstraintComponent",
+          "focusNode": "http://example.com/litigation01",
+          "valueNode": "http://example.com/customer",
+          "resultPath": "https://w3id.org/tosl/targetParty",
+          "message": "Litigation must target either a Customer or BusinessCustomer."
+        }
+      ]
+    }
+  }
+]

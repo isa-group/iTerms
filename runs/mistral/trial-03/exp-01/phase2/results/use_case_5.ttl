@@ -1,0 +1,38 @@
+@prefix : <http://example.com/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:apiService a tosl:Service ;
+    dcterms:description "Elsevier API Service" .
+
+:Elsevier a tosl:Provider ;
+    dcterms:description "Elsevier is a global information analytics business that helps institutions and professionals progress science, advance healthcare, and improve performance."^^xsd:string ;
+    foaf:name "Elsevier" ;
+    foaf:homepage <https://www.elsevier.com/> ;
+    odrl:assignerOf :apiServiceAgreement .
+
+:apiServiceAgreement a odrl:Agreement, odrl:Asset ;
+    odrl:profile <https://w3id.org/tosl/> ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "API SERVICE AGREEMENT"^^xsd:string;
+    dcterms:creator "Elsevier"^^xsd:string ;
+    dcterms:rightsHolder :Elsevier ;
+    dcterms:issued "2017"^^xsd:date ;
+    odrl:permission :permission01 ;
+    odrl:obligation :obligation01 ;
+    odrl:assigner :Elsevier .
+
+:obligation01 a odrl:Duty ;
+    dcterms:description "Elsevier will also post a notification on the API Service's web site describing the modifications made." ;
+    odrl:action odrl:inform ;
+    odrl:target :apiService ;
+    odrl:assignee :Elsevier ;
+    odrl:constraint [
+        a odrl:Constraint ;
+        odrl:leftOperand odrl:deliveryChannel ;
+        odrl:operator odrl:eq ;
+        odrl:rightOperand <https://dev.elsevier.com/api_service_agreement.html>
+    ] .

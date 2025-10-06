@@ -1,0 +1,21 @@
+@prefix : <http://example.com/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:agreement a odrl:Agreement, odrl:Asset ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:issued "2017"^^xsd:date ;
+    odrl:permission :permission01 ;
+    odrl:assigner :Elsevier .
+
+:Elsevier a tosl:Provider ;
+    dcterms:description "Elsevier is a global information analytics business that helps institutions and professionals progress science, advance healthcare, and improve performance."^^xsd:string .
+
+:obligation01 a odrl:Duty ;
+    dcterms:description "When these changes are made, Elsevier will make a new copy of the Agreement available on the API Service’s web site." ;
+    odrl:action odrl:inform ;
+    odrl:target :agreement ;
+    odrl:assignee :Elsevier .

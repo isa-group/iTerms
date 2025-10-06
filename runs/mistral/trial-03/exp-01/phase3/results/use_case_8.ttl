@@ -1,0 +1,46 @@
+@prefix : <http://example.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@base <http://example.com> .
+
+:apiServiceAgreement a odrl:Agreement, odrl:Asset ;
+    odrl:profile <https://w3id.org/tosl/> ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:creator "ELSEVIER"^^xsd:string ;
+    dcterms:rightsHolder :ELSEVIER ;
+    dcterms:issued "2017"^^xsd:date ;
+    odrl:permission :permission01 ;
+    odrl:prohibition :prohibition01 ;
+    odrl:assigner :ELSEVIER .
+
+:apiService a tosl:Service ;
+    dcterms:description "API service provided by ELSEVIER." .
+
+:ELSEVIER a tosl:Provider ;
+    dcterms:description "ELSEVIER is a global information analytics business that helps institutions and professionals progress science, advance healthcare, and improve performance."^^xsd:string ;
+    foaf:name "ELSEVIER" ;
+    foaf:homepage <https://www.elsevier.com/> ;
+    odrl:assignerOf :apiServiceAgreement .
+
+:prohibition01 a odrl:Prohibition ;
+    dcterms:description "In a situation of breach of the terms and conditions of this Agreement, Elsevier reserves the right to block, change, suspend, remove or disable access to the APIs and any of its services at any time upon reasonable notice to Developer." ;
+    odrl:action tosl:terminate ;
+    odrl:target :apiService ;
+    odrl:assignee :ELSEVIER ;
+    odrl:constraint [
+        a odrl:Constraint ;
+        dcterms:description "Upon reasonable notice to Developer." ;
+        odrl:leftOperand odrl:delayPeriod ;
+        odrl:operator odrl:gteq ;
+        odrl:rightOperand "P0D"^^xsd:duration
+    ] .

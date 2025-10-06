@@ -1,0 +1,38 @@
+@prefix : <http://example.com/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:agreement01 a odrl:Agreement ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:creator "ELSEVIER"^^xsd:string ;
+    dcterms:rightsHolder :ELSEVIER ;
+    dcterms:issued "2017"^^xsd:date ;
+    odrl:permission :permission01 ;
+    odrl:assigner :ELSEVIER .
+
+:ELSEVIER a tosl:Provider ;
+    dcterms:description "ELSEVIER"^^xsd:string .
+
+:permission01 a odrl:Permission ;
+    dcterms:description "Developer shall obtain written permission in advance from Elsevier to use Elsevier's trademarks, logos or other brand features for promoting the Developer's Application. Any press releases regarding this Agreement or the relationship of the parties shall require the prior approval of the parties." ;
+    odrl:action tosl:consent ;
+    odrl:target :trademarks ;
+    odrl:assignee :Developer ;
+    odrl:duty :duty01 .
+
+:duty01 a odrl:Duty ;
+    dcterms:description "Developer shall obtain written permission in advance from Elsevier to use Elsevier's trademarks, logos or other brand features for promoting the Developer's Application. Any press releases regarding this Agreement or the relationship of the parties shall require the prior approval of the parties." ;
+    odrl:action odrl:inform ;
+    odrl:target :trademarks ;
+    odrl:assignee :ELSEVIER ;
+    odrl:informedParty :Developer .
+
+:Developer a tosl:Customer ;
+    dcterms:description "Developer"^^xsd:string .
+
+:trademarks a odrl:Asset ;
+    dcterms:description "Elsevier's trademarks, logos or other brand features"^^xsd:string .

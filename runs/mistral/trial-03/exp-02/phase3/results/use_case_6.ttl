@@ -1,0 +1,30 @@
+@prefix : <http://example.com/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:apiService a tosl:Service ;
+    dcterms:description "Elsevier's API service for integration with applications." .
+
+:Elsevier a tosl:Provider ;
+    dcterms:description "Elsevier is a global information and analytics company specializing in scientific, technical, and medical content."^^xsd:string ;
+    foaf:name "Elsevier" ;
+    foaf:homepage <https://www.elsevier.com/> ;
+    odrl:assignerOf :apiService .
+
+:customer a tosl:Customer ;
+    dcterms:description "This party represents the customer in the context of the Elsevier API Terms of Use" .
+
+:permission01 a odrl:Permission ;
+    dcterms:description "Elsevier grants you a limited license to use its APIs and related materials to develop and integrate your application, subject to usage policies, with all notices delivered in writing to the email listed in the developer portal." ;
+    odrl:action tosl:integrate ;
+    odrl:target :apiService ;
+    odrl:assignee :customer ;
+    odrl:constraint [
+        a odrl:Constraint ;
+        odrl:leftOperand odrl:deliveryChannel ;
+        odrl:operator odrl:eq ;
+        odrl:rightOperand <https://dev.elsevier.com/email>
+    ] .

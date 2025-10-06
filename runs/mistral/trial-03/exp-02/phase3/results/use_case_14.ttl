@@ -1,0 +1,21 @@
+@prefix : <http://example.com/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:apiService a tosl:Service ;
+    dcterms:description "API Service provided by Elsevier." .
+
+:customer a tosl:Customer ;
+    dcterms:description "This party represents the customer in the context of the Elsevier API Service Agreement." .
+
+:Elsevier a tosl:Provider ;
+    dcterms:description "Elsevier is a global information and analytics company specializing in scientific, technical, and medical content."^^xsd:string .
+
+:liability01 a tosl:Liability ;
+    dcterms:description "The Developer will be solely responsible and hold Elsevier harmless for all costs, expenses, losses and liabilities incurred, and activities undertaken by the Developer in connection with the API Service." ;
+    tosl:liableParty :customer ;
+    tosl:targetParty :Elsevier ;
+    rdf:value tosl:anyLiability ;
+    odrl:target :apiService .

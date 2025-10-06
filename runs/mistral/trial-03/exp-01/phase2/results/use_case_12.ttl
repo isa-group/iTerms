@@ -1,0 +1,24 @@
+@prefix : <http://example.com/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:apiService a tosl:Service ;
+    dcterms:description "API Service provided by ELSEVIER" .
+
+:customer a tosl:Customer ;
+    dcterms:description "This party represents the customer in the context of the API Service Agreement" .
+
+:obligation01 a odrl:Duty ;
+    dcterms:description "The Application will avoid excessive and unnecessary use of the API Service that may cause a performance degradation of the API Service" ;
+    odrl:action odrl:use ;
+    odrl:target :apiService ;
+    odrl:assignee :customer ;
+    odrl:constraint [
+        a odrl:Constraint ;
+        odrl:leftOperand odrl:elapsedTime ;
+        odrl:operator odrl:lteq ;
+        odrl:rightOperand "P1H"^^xsd:duration ;
+        odrl:unit <http://www.lemon-model.net/duration-unit#minute>
+    ] .

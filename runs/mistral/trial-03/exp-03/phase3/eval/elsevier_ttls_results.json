@@ -1,0 +1,313 @@
+[
+  {
+    "file": "use_case_1.ttl",
+    "outfile": "phase3\\results\\use_case_1.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.1920609474182129,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_2.ttl",
+    "outfile": "phase3\\results\\use_case_2.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.33455920219421387,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_3.ttl",
+    "outfile": "phase3\\results\\use_case_3.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.279799222946167,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_4.ttl",
+    "outfile": "phase3\\results\\use_case_4.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.506596565246582,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_5.ttl",
+    "outfile": "phase3\\results\\use_case_5.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.2014296054840088,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_6.ttl",
+    "outfile": "phase3\\results\\use_case_6.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.7245054244995117,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_7.ttl",
+    "outfile": "phase3\\results\\use_case_7.ttl",
+    "passed": false,
+    "errors": 4,
+    "report": {
+      "syntax_valid": true,
+      "conforms": false,
+      "validation_time_sec": 0.57904052734375,
+      "violations": [
+        {
+          "severity": "http://www.w3.org/ns/shacl#Violation",
+          "sourceShape": "n26feb77660ee4f938f7d621f7b75a4b4b7",
+          "sourceConstraintComponent": "http://www.w3.org/ns/shacl#OrConstraintComponent",
+          "focusNode": "n26feb77660ee4f938f7d621f7b75a4b4b4",
+          "valueNode": "http://www.w3.org/ns/odrl/2/suspend",
+          "resultPath": "http://www.w3.org/ns/odrl/2/action",
+          "message": "The value of the action node must be a valid action from the approved ODRL or TOSL action vocabulary. Unsupported or unknown actions are not allowed."
+        },
+        {
+          "severity": "http://www.w3.org/ns/shacl#Violation",
+          "sourceShape": "n26feb77660ee4f938f7d621f7b75a4b4b5",
+          "sourceConstraintComponent": "http://www.w3.org/ns/shacl#MinCountConstraintComponent",
+          "focusNode": "n26feb77660ee4f938f7d621f7b75a4b4b4",
+          "valueNode": "",
+          "resultPath": "http://purl.org/dc/terms/description",
+          "message": "Each odrl:Duty must include a dcterms:description as a string literal with the statement to model."
+        },
+        {
+          "severity": "http://www.w3.org/ns/shacl#Violation",
+          "sourceShape": "n26feb77660ee4f938f7d621f7b75a4b4b15",
+          "sourceConstraintComponent": "http://www.w3.org/ns/shacl#OrConstraintComponent",
+          "focusNode": "n26feb77660ee4f938f7d621f7b75a4b4b12",
+          "valueNode": "http://www.w3.org/ns/odrl/2/effect",
+          "resultPath": "http://www.w3.org/ns/odrl/2/leftOperand",
+          "message": "A Constraint must have exactly one odrl:leftOperand."
+        },
+        {
+          "severity": "http://www.w3.org/ns/shacl#Violation",
+          "sourceShape": "n26feb77660ee4f938f7d621f7b75a4b4b8",
+          "sourceConstraintComponent": "http://www.w3.org/ns/shacl#NodeConstraintComponent",
+          "focusNode": "http://example.com/prohibition01",
+          "valueNode": "n26feb77660ee4f938f7d621f7b75a4b4b4",
+          "resultPath": "http://www.w3.org/ns/odrl/2/remedy",
+          "message": "Remedy must conform to DutyShape."
+        }
+      ]
+    }
+  },
+  {
+    "file": "use_case_8.ttl",
+    "outfile": "phase3\\results\\use_case_8.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.35634660720825195,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_9.ttl",
+    "outfile": "phase3\\results\\use_case_9.ttl",
+    "passed": false,
+    "errors": 2,
+    "report": {
+      "syntax_valid": true,
+      "conforms": false,
+      "validation_time_sec": 0.4119884967803955,
+      "violations": [
+        {
+          "severity": "http://www.w3.org/ns/shacl#Violation",
+          "sourceShape": "n90d929dfde83487f9bed130895223566b6",
+          "sourceConstraintComponent": "http://www.w3.org/ns/shacl#NodeConstraintComponent",
+          "focusNode": "http://example.com/apiServiceAgreement",
+          "valueNode": "http://example.com/permission01",
+          "resultPath": "http://www.w3.org/ns/odrl/2/permission",
+          "message": "If present, permission must conform to PermissionShape."
+        },
+        {
+          "severity": "http://www.w3.org/ns/shacl#Violation",
+          "sourceShape": "n90d929dfde83487f9bed130895223566b3",
+          "sourceConstraintComponent": "http://www.w3.org/ns/shacl#OrConstraintComponent",
+          "focusNode": "http://example.com/permission01",
+          "valueNode": "http://www.w3.org/ns/odrl/2/terminate",
+          "resultPath": "http://www.w3.org/ns/odrl/2/action",
+          "message": "The value of the action node must be a valid action from the approved ODRL or TOSL action vocabulary. Unsupported or unknown actions are not allowed."
+        }
+      ]
+    }
+  },
+  {
+    "file": "use_case_10.ttl",
+    "outfile": "phase3\\results\\use_case_10.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.24053359031677246,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_11.ttl",
+    "outfile": "phase3\\results\\use_case_11.ttl",
+    "passed": false,
+    "errors": 2,
+    "report": {
+      "syntax_valid": true,
+      "conforms": false,
+      "validation_time_sec": 0.3220846652984619,
+      "violations": [
+        {
+          "severity": "http://www.w3.org/ns/shacl#Violation",
+          "sourceShape": "nc7fdeb76f34e42f3b90a6da14fe4a1a6b10",
+          "sourceConstraintComponent": "http://www.w3.org/ns/shacl#OrConstraintComponent",
+          "focusNode": "nc7fdeb76f34e42f3b90a6da14fe4a1a6b8",
+          "valueNode": "http://www.w3.org/ns/odrl/2/apiKey",
+          "resultPath": "http://www.w3.org/ns/odrl/2/leftOperand",
+          "message": "A Constraint must have exactly one odrl:leftOperand."
+        },
+        {
+          "severity": "http://www.w3.org/ns/shacl#Violation",
+          "sourceShape": "nc7fdeb76f34e42f3b90a6da14fe4a1a6b3",
+          "sourceConstraintComponent": "http://www.w3.org/ns/shacl#OrConstraintComponent",
+          "focusNode": "http://example.com/prohibition01",
+          "valueNode": "nc7fdeb76f34e42f3b90a6da14fe4a1a6b8",
+          "resultPath": "http://www.w3.org/ns/odrl/2/constraint",
+          "message": "Each constraint must conform to ConstraintShape or LogicalConstraintShape."
+        }
+      ]
+    }
+  },
+  {
+    "file": "use_case_12.ttl",
+    "outfile": "phase3\\results\\use_case_12.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.16765117645263672,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_13.ttl",
+    "outfile": "phase3\\results\\use_case_13.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.3643002510070801,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_14.ttl",
+    "outfile": "phase3\\results\\use_case_14.ttl",
+    "passed": false,
+    "errors": 0,
+    "report": {
+      "syntax_valid": false,
+      "syntax_error": "at line 11 of <>:\nBad syntax (Prefix \"rdf:\" not bound) at ^ in:\n\"...b'leParty :Developer ;\\r\\n    tosl:targetParty :Elsevier ;\\r\\n    '^b'rdf:value tosl:anyLiability .'\""
+    }
+  },
+  {
+    "file": "use_case_15.ttl",
+    "outfile": "phase3\\results\\use_case_15.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.3237442970275879,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_16.ttl",
+    "outfile": "phase3\\results\\use_case_16.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.2810540199279785,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_17.ttl",
+    "outfile": "phase3\\results\\use_case_17.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.4454779624938965,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_18.ttl",
+    "outfile": "phase3\\results\\use_case_18.ttl",
+    "passed": false,
+    "errors": 0,
+    "report": {
+      "syntax_valid": false,
+      "syntax_error": "at line 11 of <>:\nBad syntax (Prefix \"rdf:\" not bound) at ^ in:\n\"...b':liableParty :PartyA ;\\r\\n    tosl:targetParty :PartyB ;\\r\\n    '^b'rdf:value tosl:anyIndirectDamage, tosl:anyLoss, tosl:legalCo'...\""
+    }
+  },
+  {
+    "file": "use_case_19.ttl",
+    "outfile": "phase3\\results\\use_case_19.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.38007116317749023,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_20.ttl",
+    "outfile": "phase3\\results\\use_case_20.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.12233519554138184,
+      "violations": []
+    }
+  }
+]

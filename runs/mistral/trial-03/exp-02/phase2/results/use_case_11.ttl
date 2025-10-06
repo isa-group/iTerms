@@ -1,0 +1,17 @@
+@prefix : <http://example.com/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:obligation01 a odrl:Duty ;
+    dcterms:description "The Application will use the API Key issued by Elsevier upon execution of this Agreement, and no other API Key issued for use by other applications and/or to other developers." ;
+    odrl:action odrl:use ;
+    odrl:target :apiKey ;
+    odrl:assignee :customer ;
+    odrl:constraint [
+        a odrl:Constraint ;
+        odrl:leftOperand odrl:spatial ;
+        odrl:operator odrl:eq ;
+        odrl:rightOperand :apiKey
+    ] .

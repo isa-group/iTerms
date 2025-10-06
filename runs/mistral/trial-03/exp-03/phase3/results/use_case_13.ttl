@@ -1,0 +1,39 @@
+@prefix : <http://example.com/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:agreement01 a odrl:Agreement ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:creator "ELSEVIER"^^xsd:string ;
+    dcterms:rightsHolder :ELSEVIER ;
+    dcterms:issued "2017"^^xsd:date ;
+    odrl:permission :permission01 ;
+    odrl:assigner :ELSEVIER .
+
+:ELSEVIER a tosl:Provider ;
+    dcterms:description "ELSEVIER"^^xsd:string .
+
+:permission01 a odrl:Permission ;
+    dcterms:description "the Developer acknowledges that all right, title and interest in and to the Elsevier content, and any derivative works based upon the Elsevier content, remain with Elsevier and its suppliers, except as expressly set forth in this Agreement, and that the unauthorized redistribution of the Elsevier content is not permitted." ;
+    odrl:action odrl:use ;
+    odrl:target :elsevierContent ;
+    odrl:assignee :developer ;
+    odrl:constraint [
+        a odrl:Constraint ;
+        odrl:leftOperand odrl:purpose ;
+        odrl:operator odrl:neq ;
+        odrl:rightOperand :unauthorizedRedistribution
+    ] .
+
+:elsevierContent a odrl:Asset ;
+    dcterms:description "Elsevier content"^^xsd:string .
+
+:developer a tosl:Customer ;
+    dcterms:description "Developer"^^xsd:string .
+
+:unauthorizedRedistribution a odrl:Purpose ;
+    dcterms:description "unauthorized redistribution"^^xsd:string .

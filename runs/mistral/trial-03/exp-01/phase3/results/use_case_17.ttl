@@ -1,0 +1,42 @@
+@prefix : <http://example.com/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:apiService a tosl:Service ;
+    dcterms:description "API service provided by ELSEVIER" .
+
+:elsevier a tosl:Provider ;
+    dcterms:description "ELSEVIER is a global information analytics business that helps institutions and professionals progress science, advance healthcare, and improve performance."^^xsd:string ;
+    foaf:name "ELSEVIER" ;
+    foaf:homepage <https://www.elsevier.com/> ;
+    odrl:assignerOf :apiService .
+
+:customer a tosl:Customer ;
+    dcterms:description "This party represents the consumer in the context of the ELSEVIER API service agreement" .
+
+:agreement01 a odrl:Agreement ;
+    odrl:profile <https://w3id.org/tosl/> ;
+    dcterms:source <https://www.elsevier.com/legal/terms-and-conditions> ;
+    dcterms:title "ELSEVIER API Service Terms of Use"^^xsd:string ;
+    dcterms:description "These Terms of Use govern the use of ELSEVIER's API services."^^xsd:string ;
+    dcterms:creator "ELSEVIER"^^xsd:string ;
+    dcterms:rightsHolder :elsevier ;
+    dcterms:issued "2024-12-11"^^xsd:date ;
+    odrl:assigner :elsevier ;
+    odrl:permission :permission01 ;
+    odrl:liability :liability01 .
+
+:permission01 a odrl:Permission ;
+    dcterms:description "You are permitted to use the API service in accordance with these terms." ;
+    odrl:action odrl:use ;
+    odrl:target :apiService ;
+    odrl:assignee :customer .
+
+:liability01 a tosl:Liability ;
+    dcterms:description "API service is provided on an 'as is' and 'as available' basis without warranties of any kind" ;
+    tosl:liableParty :elsevier ;
+    tosl:targetParty :customer ;
+    rdf:value tosl:legalCompliance .

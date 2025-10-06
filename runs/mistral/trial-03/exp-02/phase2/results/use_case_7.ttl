@@ -1,0 +1,34 @@
+@prefix : <http://example.com/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:prohibition01 a odrl:Prohibition ;
+    dcterms:description "Elsevier retains the right to immediately suspend the Application's access to the API Service if, in Elsevier's sole judgment: the Application's usage of the API Service negatively affects the availability or performance of the API Service, or the Application is in breach of the API's Content Usage Policies on http://dev.elsevier.com/policy.html" ;
+    odrl:action tosl:terminate ;
+    odrl:target :apiService ;
+    odrl:assignee :customer ;
+    odrl:constraint [
+        a odrl:LogicalConstraint ;
+        odrl:or (
+            [
+                a odrl:Constraint ;
+                odrl:leftOperand odrl:effect ;
+                odrl:operator odrl:isAnyOf ;
+                odrl:rightOperand ( "availability" "performance" )
+            ]
+            [
+                a odrl:Constraint ;
+                odrl:leftOperand tosl:compliance ;
+                odrl:operator odrl:neq ;
+                odrl:rightOperand :contentUsagePolicies
+            ]
+        )
+    ] .
+
+:apiService a tosl:Service ;
+    dcterms:description "API Service provided by Elsevier" .
+
+:contentUsagePolicies a odrl:Asset ;
+    dcterms:description "API's Content Usage Policies" .

@@ -1,0 +1,28 @@
+@prefix : <http://example.com/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:agreement01 a odrl:Agreement ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "You accept and agree to the terms and conditions of this Agreement and the terms and conditions of the agreement between Elsevier and Your institution, company or organization or if not applicable, as agreed between Elsevier and You for Your specific use case."^^xsd:string ;
+    dcterms:creator "ELSEVIER"^^xsd:string ;
+    dcterms:issued "2017"^^xsd:date ;
+    odrl:permission :permission01 ;
+    odrl:assigner :Elsevier .
+
+:Elsevier a tosl:Provider ;
+    dcterms:description "Elsevier is a global information analytics business that helps institutions and professionals progress science, advance healthcare and improve performance."^^xsd:string ;
+    foaf:name "Elsevier" ;
+    foaf:homepage <https://www.elsevier.com/> .
+
+:customer a tosl:Customer ;
+    dcterms:description "This party represents the customer in the context of the Elsevier API Service Agreement" .
+
+:permission01 a odrl:Permission ;
+    dcterms:description "You accept and agree to the terms and conditions of this Agreement and the terms and conditions of the agreement between Elsevier and Your institution, company or organization or if not applicable, as agreed between Elsevier and You for Your specific use case." ;
+    odrl:action tosl:consent ;
+    odrl:target :agreement01 ;
+    odrl:assignee :customer .
