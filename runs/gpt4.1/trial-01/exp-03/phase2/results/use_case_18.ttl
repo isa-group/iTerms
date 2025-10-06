@@ -1,0 +1,50 @@
+@prefix : <http://example.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@base <http://example.com> .
+
+:Elsevier a tosl:Provider ;
+    dcterms:description "Elsevier is a global information analytics business specializing in science and health."^^xsd:string ;
+    foaf:name "ELSEVIER" ;
+    foaf:homepage <https://www.elsevier.com/> ;
+    odrl:assignerOf :apiService .
+
+:apiService a tosl:Service ;
+    dcterms:description "Elsevier API Service governed by the API Service Agreement." .
+
+:customer a tosl:Customer ;
+    dcterms:description "This party represents the customer or licensee of the Elsevier API Service." .
+
+:businessCustomer a tosl:BusinessCustomer ;
+    dcterms:description "This party represents a business customer of the Elsevier API Service." .
+
+:liability01 a tosl:Liability ;
+    dcterms:description "Except as expressly stated in this Agreement, each party disclaims all liability to the other party in connection with the parties' performance of this Agreement and in no event will the infringing party be liable to the other party for special, indirect or consequential damages including but not limited to loss of profits, loss of business or unfitness for user purposes."^^xsd:string ;
+    tosl:liableParty :Elsevier, :customer, :businessCustomer ;
+    tosl:targetParty :Elsevier, :customer, :businessCustomer ;
+    rdf:value tosl:anyIndirectDamage, tosl:anyLoss ;
+    tosl:limitation [
+        a odrl:Constraint ;
+        odrl:leftOperand tosl:effect ;
+        odrl:operator odrl:isAnyOf ;
+        odrl:rightOperand ( "lossOfProfits" "lossOfBusiness" "unfitnessForUserPurposes" )
+    ] .
+
+:agreement01 a odrl:Agreement, odrl:Asset ;
+    odrl:profile <https://w3id.org/tosl/> ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "Elsevier API Service Agreement governing the use of Elsevier's API services."^^xsd:string ;
+    dcterms:creator "ELSEVIER"^^xsd:string ;
+    dcterms:rightsHolder :Elsevier ;
+    dcterms:issued "2017"^^xsd:gYear ;
+    odrl:assigner :Elsevier ;
+    tosl:limitationOfLiability :liability01 .

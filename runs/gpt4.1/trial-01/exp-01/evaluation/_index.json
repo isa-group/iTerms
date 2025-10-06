@@ -1,0 +1,122 @@
+[
+  {
+    "file": "phase3/results/use_case_10.ttl",
+    "out": "evaluation/use_case_10_results.json",
+    "calls": 12,
+    "ok": 12
+  },
+  {
+    "file": "phase3/results/use_case_1.ttl",
+    "out": "evaluation/use_case_1_results.json",
+    "calls": 12,
+    "ok": 12
+  },
+  {
+    "file": "phase3/results/use_case_13.ttl",
+    "out": "evaluation/use_case_13_results.json",
+    "calls": 12,
+    "ok": 12
+  },
+  {
+    "file": "phase3/results/use_case_14.ttl",
+    "out": "evaluation/use_case_14_results.json",
+    "calls": 12,
+    "ok": 12
+  },
+  {
+    "file": "phase3/results/use_case_11.ttl",
+    "out": "evaluation/use_case_11_results.json",
+    "calls": 12,
+    "ok": 12
+  },
+  {
+    "file": "phase3/results/use_case_12.ttl",
+    "out": "evaluation/use_case_12_results.json",
+    "calls": 12,
+    "ok": 12
+  },
+  {
+    "file": "phase3/results/use_case_16.ttl",
+    "out": "evaluation/use_case_16_results.json",
+    "calls": 12,
+    "ok": 12
+  },
+  {
+    "file": "phase3/results/use_case_17.ttl",
+    "out": "evaluation/use_case_17_results.json",
+    "calls": 12,
+    "ok": 12
+  },
+  {
+    "file": "phase3/results/use_case_15.ttl",
+    "out": "evaluation/use_case_15_results.json",
+    "calls": 12,
+    "ok": 12
+  },
+  {
+    "file": "phase3/results/use_case_18.ttl",
+    "out": "evaluation/use_case_18_results.json",
+    "calls": 12,
+    "ok": 12
+  },
+  {
+    "file": "phase3/results/use_case_19.ttl",
+    "out": "evaluation/use_case_19_results.json",
+    "calls": 12,
+    "ok": 12
+  },
+  {
+    "file": "phase3/results/use_case_2.ttl",
+    "out": "evaluation/use_case_2_results.json",
+    "calls": 12,
+    "ok": 12
+  },
+  {
+    "file": "phase3/results/use_case_20.ttl",
+    "out": "evaluation/use_case_20_results.json",
+    "calls": 12,
+    "ok": 12
+  },
+  {
+    "file": "phase3/results/use_case_3.ttl",
+    "out": "evaluation/use_case_3_results.json",
+    "calls": 12,
+    "ok": 12
+  },
+  {
+    "file": "phase3/results/use_case_4.ttl",
+    "out": "evaluation/use_case_4_results.json",
+    "calls": 12,
+    "ok": 12
+  },
+  {
+    "file": "phase3/results/use_case_5.ttl",
+    "out": "evaluation/use_case_5_results.json",
+    "calls": 12,
+    "ok": 12
+  },
+  {
+    "file": "phase3/results/use_case_6.ttl",
+    "out": "evaluation/use_case_6_results.json",
+    "calls": 12,
+    "ok": 12
+  },
+  {
+    "file": "phase3/results/use_case_7.ttl",
+    "out": "evaluation/use_case_7_results.json",
+    "calls": 12,
+    "ok": 12
+  },
+  {
+    "file": "phase3/results/use_case_8.ttl",
+    "out": "evaluation/use_case_8_results.json",
+    "calls": 12,
+    "ok": 12
+  },
+  {
+    "file": "phase3/results/use_case_9.ttl",
+    "out": "evaluation/use_case_9_results.json",
+    "calls": 12,
+    "ok": 12
+  }
+]

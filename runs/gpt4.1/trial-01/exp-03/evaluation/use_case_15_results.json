@@ -1,0 +1,74 @@
+{
+  "file": "phase3/results/use_case_15.ttl",
+  "deontic": {
+    "total_rules": 4,
+    "duties": [
+      {
+        "id": "n2e1e9abda35047c7a1f48344277e84c1b2",
+        "actions": [
+          "odrl:obtainConsent"
+        ],
+        "targets": [
+          ":elsevierBrandFeatures"
+        ],
+        "assignee": ":developer",
+        "assigner": null,
+        "description": null
+      },
+      {
+        "id": "n2e1e9abda35047c7a1f48344277e84c1b6",
+        "actions": [
+          "odrl:obtainConsent"
+        ],
+        "targets": [
+          ":pressRelease"
+        ],
+        "assignee": ":developer",
+        "assigner": null,
+        "description": null
+      }
+    ],
+    "permissions": [],
+    "prohibitions": [
+      {
+        "id": ":prohibition01",
+        "actions": [
+          "odrl:use"
+        ],
+        "targets": [
+          ":elsevierBrandFeatures"
+        ],
+        "assignee": ":developer",
+        "assigner": null,
+        "description": null
+      },
+      {
+        "id": ":prohibition02",
+        "actions": [
+          "tosl:publish"
+        ],
+        "targets": [
+          ":pressRelease"
+        ],
+        "assignee": ":developer",
+        "assigner": null,
+        "description": null
+      }
+    ]
+  },
+  "unfair_terms": {
+    "change": [],
+    "termination": [],
+    "contract_by_use": [],
+    "choice_of_law": [],
+    "jurisdiction": [],
+    "arbitration": [],
+    "content_removal": [],
+    "limitation_of_liability": []
+  },
+  "_meta": {
+    "calls": 12,
+    "ok": 12,
+    "ms_total": 11583
+  }
+}
