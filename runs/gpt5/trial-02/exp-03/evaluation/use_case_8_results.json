@@ -1,0 +1,74 @@
+{
+  "file": "phase3/results/use_case_8.ttl",
+  "deontic": {
+    "total_rules": 2,
+    "duties": [
+      {
+        "id": "nd569506855e049988dc91d3bad382ea2b2",
+        "actions": [
+          "odrl:inform"
+        ],
+        "targets": [
+          ":apis"
+        ],
+        "assignee": ":OpenAI",
+        "assigner": null,
+        "description": null
+      }
+    ],
+    "permissions": [
+      {
+        "id": ":permission01",
+        "actions": [
+          "odrl:modify",
+          "tosl:terminate",
+          "tosl:remove"
+        ],
+        "targets": [
+          ":apis"
+        ],
+        "assignee": ":OpenAI",
+        "assigner": null,
+        "description": null
+      }
+    ],
+    "prohibitions": []
+  },
+  "unfair_terms": {
+    "change": [
+      {
+        "permission": ":permission01",
+        "description": "In the event of a breach of this Agreement, Elsevier may block, change, suspend, remove, or disable access to the APIs and services at any time upon reasonable notice to Developer.",
+        "action": "odrl:modify",
+        "target": ":apis"
+      }
+    ],
+    "termination": [
+      {
+        "permission": ":permission01",
+        "description": "In the event of a breach of this Agreement, Elsevier may block, change, suspend, remove, or disable access to the APIs and services at any time upon reasonable notice to Developer.",
+        "action": "tosl:terminate",
+        "assignee": ":OpenAI",
+        "target": ":apis"
+      }
+    ],
+    "contract_by_use": [],
+    "choice_of_law": [],
+    "jurisdiction": [],
+    "arbitration": [],
+    "content_removal": [
+      {
+        "permission": ":permission01",
+        "action": "tosl:remove",
+        "assignee": ":OpenAI",
+        "target": ":apis"
+      }
+    ],
+    "limitation_of_liability": []
+  },
+  "_meta": {
+    "calls": 12,
+    "ok": 12,
+    "ms_total": 6444
+  }
+}

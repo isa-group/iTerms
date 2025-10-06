@@ -1,0 +1,82 @@
+{
+  "phase2/results/use_case_1.ttl": {
+    "passed": true,
+    "errors": 0
+  },
+  "phase2/results/use_case_10.ttl": {
+    "passed": true,
+    "errors": 0
+  },
+  "phase2/results/use_case_11.ttl": {
+    "passed": true,
+    "errors": 0
+  },
+  "phase2/results/use_case_12.ttl": {
+    "passed": true,
+    "errors": 0
+  },
+  "phase2/results/use_case_13.ttl": {
+    "passed": true,
+    "errors": 0
+  },
+  "phase2/results/use_case_14.ttl": {
+    "passed": true,
+    "errors": 0
+  },
+  "phase2/results/use_case_15.ttl": {
+    "passed": true,
+    "errors": 0
+  },
+  "phase2/results/use_case_16.ttl": {
+    "passed": true,
+    "errors": 0
+  },
+  "phase2/results/use_case_17.ttl": {
+    "passed": true,
+    "errors": 0
+  },
+  "phase2/results/use_case_18.ttl": {
+    "passed": true,
+    "errors": 0
+  },
+  "phase2/results/use_case_19.ttl": {
+    "passed": true,
+    "errors": 0
+  },
+  "phase2/results/use_case_2.ttl": {
+    "passed": true,
+    "errors": 0
+  },
+  "phase2/results/use_case_20.ttl": {
+    "passed": true,
+    "errors": 0
+  },
+  "phase2/results/use_case_3.ttl": {
+    "passed": true,
+    "errors": 0
+  },
+  "phase2/results/use_case_4.ttl": {
+    "passed": true,
+    "errors": 0
+  },
+  "phase2/results/use_case_5.ttl": {
+    "passed": true,
+    "errors": 0
+  },
+  "phase2/results/use_case_6.ttl": {
+    "passed": true,
+    "errors": 0
+  },
+  "phase2/results/use_case_7.ttl": {
+    "passed": true,
+    "errors": 0
+  },
+  "phase2/results/use_case_8.ttl": {
+    "passed": true,
+    "errors": 0
+  },
+  "phase2/results/use_case_9.ttl": {
+    "passed": true,
+    "errors": 0
+  }
+}

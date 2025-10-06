@@ -1,0 +1,59 @@
+{
+  "file": "phase3/results/use_case_18.ttl",
+  "deontic": {
+    "total_rules": 1,
+    "duties": [],
+    "permissions": [
+      {
+        "id": ":permission01",
+        "actions": [
+          "odrl:use"
+        ],
+        "targets": [
+          ":services"
+        ],
+        "assignee": ":customer",
+        "assigner": null,
+        "description": null
+      }
+    ],
+    "prohibitions": []
+  },
+  "unfair_terms": {
+    "change": [],
+    "termination": [],
+    "contract_by_use": [],
+    "choice_of_law": [],
+    "jurisdiction": [],
+    "arbitration": [],
+    "content_removal": [],
+    "limitation_of_liability": [
+      {
+        "liability": ":liability01",
+        "description": "Except as expressly stated in this Agreement, ELSEVIER disclaims all liability to Customer in connection with the parties' performance of this Agreement.",
+        "limitationOn": ":agreement01",
+        "type": "tosl:anyLiability",
+        "liableParty": ":ELSEVIER"
+      },
+      {
+        "liability": ":liability03",
+        "description": "In no event will ELSEVIER, as the infringing party, be liable to Customer for special, indirect, or consequential damages, including but not limited to loss of profits, loss of business, or unfitness for user purposes.",
+        "limitationOn": ":agreement01",
+        "type": "tosl:anyIndirectDamage",
+        "liableParty": ":ELSEVIER"
+      },
+      {
+        "liability": ":liability03",
+        "description": "In no event will ELSEVIER, as the infringing party, be liable to Customer for special, indirect, or consequential damages, including but not limited to loss of profits, loss of business, or unfitness for user purposes.",
+        "limitationOn": ":agreement01",
+        "type": "tosl:anyLoss",
+        "liableParty": ":ELSEVIER"
+      }
+    ]
+  },
+  "_meta": {
+    "calls": 12,
+    "ok": 12,
+    "ms_total": 13330
+  }
+}

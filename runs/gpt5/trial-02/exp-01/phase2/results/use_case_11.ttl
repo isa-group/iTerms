@@ -1,0 +1,70 @@
+@prefix : <http://example.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@base <http://example.com> .
+
+:ELSEVIER a tosl:Provider ;
+    dcterms:description "Elsevier is the provider of the APIs and issues API Keys to developers."^^xsd:string ;
+    foaf:name "ELSEVIER" ;
+    foaf:homepage <https://dev.elsevier.com/> .
+
+:customer a tosl:Customer ;
+    dcterms:description "The API customer/developer using Elsevier APIs under this Agreement."^^xsd:string .
+
+:apiKey a odrl:Asset ;
+    dcterms:description "The API Key issued by Elsevier for the registered Application under this Agreement."^^xsd:string .
+
+:application a odrl:Asset ;
+    dcterms:description "The specific Application registered by the customer to access Elsevier APIs."^^xsd:string .
+
+:issuer a odrl:LeftOperand .
+:issuedFor a odrl:LeftOperand .
+:issuedTo a odrl:LeftOperand .
+
+:obligation01 a odrl:Duty ;
+    dcterms:description "The Application must use only the API Key issued by Elsevier for that Application upon execution of this Agreement, and no other API Key issued for other applications and/or to other developers."^^xsd:string ;
+    odrl:action odrl:use ;
+    odrl:target :apiKey ;
+    odrl:assignee :customer ;
+    odrl:constraint [
+        a odrl:LogicalConstraint ;
+        odrl:and (
+            [
+                a odrl:Constraint ;
+                odrl:leftOperand :issuer ;
+                odrl:operator odrl:eq ;
+                odrl:rightOperandReference :ELSEVIER
+            ]
+            [
+                a odrl:Constraint ;
+                odrl:leftOperand :issuedFor ;
+                odrl:operator odrl:eq ;
+                odrl:rightOperandReference :application
+            ]
+            [
+                a odrl:Constraint ;
+                odrl:leftOperand :issuedTo ;
+                odrl:operator odrl:eq ;
+                odrl:rightOperandReference :customer
+            ]
+        )
+    ] .
+
+:agreement01 a odrl:Agreement ;
+    odrl:profile <https://w3id.org/tosl/> ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "Clause 3.1.2 obligates the customer to use only the API Key issued by Elsevier for the registered Application, and no other API Key issued for other applications or developers."^^xsd:string ;
+    dcterms:creator "ELSEVIER"^^xsd:string ;
+    dcterms:issued "2017-01-01"^^xsd:date ;
+    odrl:obligation :obligation01 ;
+    odrl:assigner :ELSEVIER .

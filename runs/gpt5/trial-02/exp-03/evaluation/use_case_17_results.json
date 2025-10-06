@@ -1,0 +1,52 @@
+{
+  "file": "phase3/results/use_case_17.ttl",
+  "deontic": {
+    "total_rules": 1,
+    "duties": [],
+    "permissions": [],
+    "prohibitions": [
+      {
+        "id": ":prohibition01",
+        "actions": [
+          "tosl:claim"
+        ],
+        "targets": [
+          ":apiService"
+        ],
+        "assignee": ":customer",
+        "assigner": null,
+        "description": null
+      }
+    ]
+  },
+  "unfair_terms": {
+    "change": [],
+    "termination": [],
+    "contract_by_use": [],
+    "choice_of_law": [],
+    "jurisdiction": [],
+    "arbitration": [],
+    "content_removal": [],
+    "limitation_of_liability": [
+      {
+        "liability": ":liability01",
+        "description": "The API service is provided on an 'as is' and 'as available' basis without warranties of any kind.",
+        "limitationOn": ":agreement01",
+        "type": "tosl:serviceContent",
+        "liableParty": ":ELSEVIER"
+      },
+      {
+        "liability": ":liability01",
+        "description": "The API service is provided on an 'as is' and 'as available' basis without warranties of any kind.",
+        "limitationOn": ":agreement01",
+        "type": "tosl:discontinuity",
+        "liableParty": ":ELSEVIER"
+      }
+    ]
+  },
+  "_meta": {
+    "calls": 12,
+    "ok": 12,
+    "ms_total": 14605
+  }
+}

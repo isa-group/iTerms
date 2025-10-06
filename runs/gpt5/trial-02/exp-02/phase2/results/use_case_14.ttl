@@ -1,0 +1,47 @@
+@prefix : <http://example.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@base <http://example.com> .
+
+:agreement01 a odrl:Agreement ;
+    odrl:profile <https://w3id.org/tosl/> ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "Liability clause modeling: Developer is solely responsible and must hold Elsevier harmless for all costs, expenses, losses, and liabilities incurred, and activities undertaken by the Developer in connection with the API Service."^^xsd:string ;
+    dcterms:creator "Elsevier"^^xsd:string ;
+    dcterms:rightsHolder :Elsevier ;
+    dcterms:issued "2017-01-01"^^xsd:date ;
+    odrl:permission :permission01 ;
+    tosl:liability :liability01 ;
+    odrl:assigner :Elsevier .
+
+:Elsevier a tosl:Provider ;
+    dcterms:description "Elsevier is the provider of the API Service."^^xsd:string ;
+    foaf:name "Elsevier" ;
+    foaf:homepage <https://www.elsevier.com/> .
+
+:customer a tosl:Customer ;
+    dcterms:description "The Developer using Elsevier's API Service."^^xsd:string .
+
+:apiService a tosl:Service ;
+    dcterms:description "Elsevier API Service."^^xsd:string .
+
+:permission01 a odrl:Permission ;
+    dcterms:description "Customer may use the API Service subject to this Agreement." ;
+    odrl:action odrl:use ;
+    odrl:target :apiService ;
+    odrl:assignee :customer .
+
+:liability01 a tosl:Liability ;
+    dcterms:description "The Developer (Customer) will be solely responsible and will hold Elsevier harmless for all costs, expenses, losses, and liabilities incurred, and activities undertaken by the Developer in connection with the API Service." ;
+    tosl:liableParty :customer ;
+    tosl:targetParty :Elsevier ;
+    rdf:value tosl:anyLiability, tosl:anyLoss .

@@ -1,0 +1,90 @@
+@prefix : <http://example.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@base <http://example.com> .
+
+:Elsevier a tosl:Provider ;
+    dcterms:description "Elsevier, the provider of the API Services and this Agreement."^^xsd:string ;
+    foaf:name "Elsevier" ;
+    foaf:homepage <https://www.elsevier.com/> .
+
+:developer a tosl:Customer ;
+    dcterms:description "The Developer using Elsevier's APIs under this Agreement."^^xsd:string .
+
+:agreement01 a odrl:Agreement, odrl:Asset ;
+    odrl:profile <https://w3id.org/tosl/> ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "The term starts when the Developer accepts the Agreement and continues until either party terminates in writing or Elsevier deactivates the API Key."^^xsd:string ;
+    dcterms:creator "Elsevier"^^xsd:string ;
+    dcterms:rightsHolder :Elsevier ;
+    dcterms:issued "2017"^^xsd:gYear ;
+    odrl:permission :permTerminateDeveloper, :permTerminateElsevierNotice, :permTerminateOnDeactivation ;
+    odrl:obligation :obligationAccept ;
+    odrl:assigner :Elsevier .
+
+:obligationAccept a odrl:Duty ;
+    dcterms:description "The term of this Agreement commences when the Developer accepts this Agreement."^^xsd:string ;
+    odrl:action tosl:consent ;
+    odrl:target :agreement01 ;
+    odrl:assignee :developer .
+
+:permTerminateDeveloper a odrl:Permission ;
+    dcterms:description "The Developer may terminate this Agreement by providing written notice."^^xsd:string ;
+    odrl:action tosl:terminate ;
+    odrl:target :agreement01 ;
+    odrl:assignee :developer ;
+    odrl:duty [
+        a odrl:Duty ;
+        dcterms:description "Provide written notice of termination."^^xsd:string ;
+        odrl:action odrl:inform ;
+        odrl:target :agreement01 ;
+        odrl:assignee :developer ;
+        odrl:informedParty :Elsevier ;
+        odrl:constraint [
+            a odrl:Constraint ;
+            odrl:leftOperand odrl:deliveryChannel ;
+            odrl:operator odrl:eq ;
+            odrl:rightOperand "writing"^^xsd:string
+        ]
+    ] .
+
+:permTerminateElsevierNotice a odrl:Permission ;
+    dcterms:description "Elsevier may terminate this Agreement by providing written notice."^^xsd:string ;
+    odrl:action tosl:terminate ;
+    odrl:target :agreement01 ;
+    odrl:assignee :Elsevier ;
+    odrl:duty [
+        a odrl:Duty ;
+        dcterms:description "Provide written notice of termination."^^xsd:string ;
+        odrl:action odrl:inform ;
+        odrl:target :agreement01 ;
+        odrl:assignee :Elsevier ;
+        odrl:informedParty :developer ;
+        odrl:constraint [
+            a odrl:Constraint ;
+            odrl:leftOperand odrl:deliveryChannel ;
+            odrl:operator odrl:eq ;
+            odrl:rightOperand "writing"^^xsd:string
+        ]
+    ] .
+
+:permTerminateOnDeactivation a odrl:Permission ;
+    dcterms:description "Elsevier may terminate this Agreement if the API Key is deactivated by Elsevier."^^xsd:string ;
+    odrl:action tosl:terminate ;
+    odrl:target :agreement01 ;
+    odrl:assignee :Elsevier ;
+    odrl:constraint [
+        a odrl:Constraint ;
+        odrl:leftOperand odrl:event ;
+        odrl:operator odrl:eq ;
+        odrl:rightOperand :apiKeyDeactivated
+    ] .

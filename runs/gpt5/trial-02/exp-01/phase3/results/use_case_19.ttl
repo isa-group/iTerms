@@ -1,0 +1,80 @@
+@prefix : <http://example.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@base <http://example.com> .
+
+:ELSEVIER a tosl:Provider ;
+    foaf:name "ELSEVIER"^^xsd:string ;
+    foaf:homepage <https://dev.elsevier.com/> .
+
+:developer a tosl:Customer ;
+    dcterms:description "The developer using Elsevier APIs under this Agreement."^^xsd:string .
+
+:agreement01 a odrl:Agreement, odrl:Asset ;
+    odrl:profile <https://w3id.org/tosl/> ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "The term commences upon the Developer’s acceptance and continues until either party terminates in writing or the API Key is deactivated by Elsevier."^^xsd:string ;
+    dcterms:creator "ELSEVIER"^^xsd:string ;
+    dcterms:rightsHolder :ELSEVIER ;
+    dcterms:issued "2017-01-01"^^xsd:date ;
+    odrl:permission :permission01, :permission02 ;
+    odrl:assigner :ELSEVIER .
+
+:permission01 a odrl:Permission ;
+    dcterms:description "Either party may terminate this Agreement in writing, or the Agreement terminates if the API Key is deactivated by Elsevier."^^xsd:string ;
+    odrl:action tosl:terminate ;
+    odrl:target :agreement01 ;
+    odrl:assignee :ELSEVIER ;
+    odrl:constraint [
+        a odrl:LogicalConstraint ;
+        odrl:or (
+            [
+                a odrl:Constraint ;
+                dcterms:description "Termination by either party must be made in writing."^^xsd:string ;
+                odrl:leftOperand odrl:deliveryChannel ;
+                odrl:operator odrl:eq ;
+                odrl:rightOperand "writing"^^xsd:string
+            ]
+            [
+                a odrl:Constraint ;
+                dcterms:description "Termination applies if the API Key is deactivated by Elsevier."^^xsd:string ;
+                odrl:leftOperand odrl:event ;
+                odrl:operator odrl:eq ;
+                odrl:rightOperand :apiKeyDeactivated
+            ]
+        )
+    ] .
+
+:permission02 a odrl:Permission ;
+    dcterms:description "Either party may terminate this Agreement in writing, or the Agreement terminates if the API Key is deactivated by Elsevier."^^xsd:string ;
+    odrl:action tosl:terminate ;
+    odrl:target :agreement01 ;
+    odrl:assignee :developer ;
+    odrl:constraint [
+        a odrl:LogicalConstraint ;
+        odrl:or (
+            [
+                a odrl:Constraint ;
+                dcterms:description "Termination by either party must be made in writing."^^xsd:string ;
+                odrl:leftOperand odrl:deliveryChannel ;
+                odrl:operator odrl:eq ;
+                odrl:rightOperand "writing"^^xsd:string
+            ]
+            [
+                a odrl:Constraint ;
+                dcterms:description "Termination applies if the API Key is deactivated by Elsevier."^^xsd:string ;
+                odrl:leftOperand odrl:event ;
+                odrl:operator odrl:eq ;
+                odrl:rightOperand :apiKeyDeactivated
+            ]
+        )
+    ] .

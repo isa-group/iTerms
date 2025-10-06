@@ -1,0 +1,61 @@
+@prefix : <http://example.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@base <http://example.com> .
+
+:Elsevier a tosl:Provider ;
+    dcterms:description "Elsevier is the assigner and provider of the APIs and related materials."^^xsd:string ;
+    foaf:name "ELSEVIER" ;
+    foaf:homepage <https://dev.elsevier.com/> .
+
+:developer a tosl:Customer ;
+    dcterms:description "A developer using Elsevier APIs under the API Service Agreement."^^xsd:string .
+
+:apiResources a odrl:Asset ;
+    dcterms:description "Elsevier APIs and related materials."^^xsd:string .
+
+:agreement01 a odrl:Agreement ;
+    odrl:profile <https://w3id.org/tosl/> ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "Elsevier grants a limited license to use its APIs and related materials to develop and integrate applications, subject to usage policies and written notice delivery requirements."^^xsd:string ;
+    dcterms:creator "ELSEVIER"^^xsd:string ;
+    dcterms:rightsHolder :Elsevier ;
+    dcterms:issued "2017-01-01"^^xsd:date ;
+    odrl:permission :permission01 ;
+    odrl:assigner :Elsevier .
+
+:permission01 a odrl:Permission ;
+    dcterms:description "Limited license to use Elsevier APIs and related materials to develop and integrate your application, subject to usage policies, with all notices delivered in writing to the email listed in the developer portal."^^xsd:string ;
+    odrl:action odrl:use, tosl:develop, tosl:integrate ;
+    odrl:target :apiResources ;
+    odrl:assignee :developer ;
+    odrl:constraint [
+        a odrl:Constraint ;
+        dcterms:description "Must comply with Elsevier usage policies."^^xsd:string ;
+        odrl:leftOperand tosl:compliance ;
+        odrl:operator odrl:eq ;
+        odrl:rightOperand :usagePolicies
+    ] ;
+    odrl:duty [
+        a odrl:Duty ;
+        dcterms:description "Deliver all notices in writing to the email listed in the developer portal."^^xsd:string ;
+        odrl:action odrl:inform ;
+        odrl:target :apiResources ;
+        odrl:assignee :Elsevier ;
+        odrl:informedParty :developer ;
+        odrl:constraint [
+            a odrl:Constraint ;
+            odrl:leftOperand odrl:deliveryChannel ;
+            odrl:operator odrl:eq ;
+            odrl:rightOperand "email listed in the developer portal"^^xsd:string
+        ]
+    ] .

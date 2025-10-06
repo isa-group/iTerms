@@ -1,0 +1,49 @@
+{
+  "file": "phase3/results/use_case_16.ttl",
+  "deontic": {
+    "total_rules": 2,
+    "duties": [],
+    "permissions": [],
+    "prohibitions": [
+      {
+        "id": ":prohibitionAds",
+        "actions": [
+          "odrl:display"
+        ],
+        "targets": [
+          ":application"
+        ],
+        "assignee": ":customer",
+        "assigner": null,
+        "description": null
+      },
+      {
+        "id": ":prohibitionOutsideUse",
+        "actions": [
+          "odrl:use"
+        ],
+        "targets": [
+          ":apiContent"
+        ],
+        "assignee": ":customer",
+        "assigner": null,
+        "description": null
+      }
+    ]
+  },
+  "unfair_terms": {
+    "change": [],
+    "termination": [],
+    "contract_by_use": [],
+    "choice_of_law": [],
+    "jurisdiction": [],
+    "arbitration": [],
+    "content_removal": [],
+    "limitation_of_liability": []
+  },
+  "_meta": {
+    "calls": 12,
+    "ok": 12,
+    "ms_total": 12464
+  }
+}

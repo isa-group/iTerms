@@ -1,0 +1,56 @@
+@prefix : <http://example.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@base <http://example.com> .
+
+:ELSEVIER a tosl:Provider ;
+    dcterms:description "Elsevier is an information analytics business specializing in science and health."^^xsd:string ;
+    foaf:name "ELSEVIER" ;
+    foaf:homepage <https://www.elsevier.com/> .
+
+:apiAccess a tosl:Service ;
+    dcterms:description "Access to the Elsevier API Service for an Application."^^xsd:string .
+
+:agreement01 a odrl:Agreement ;
+    odrl:profile <https://w3id.org/tosl/> ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "Elsevier retains the right to immediately suspend the Application's access to the API Service if, in Elsevier's sole judgment, usage negatively affects availability or performance, or the Application breaches the Content Usage Policies."^^xsd:string ;
+    dcterms:creator "ELSEVIER"^^xsd:string ;
+    dcterms:rightsHolder :ELSEVIER ;
+    dcterms:issued "2017-01-01"^^xsd:date ;
+    odrl:permission :permission01 ;
+    odrl:assigner :ELSEVIER .
+
+:permission01 a odrl:Permission ;
+    dcterms:description "Elsevier may immediately suspend or terminate an Application's access to the API Service if usage negatively affects availability or performance, or if the Application breaches the Content Usage Policies."^^xsd:string ;
+    odrl:action tosl:terminate ;
+    odrl:target :apiAccess ;
+    odrl:assignee :ELSEVIER ;
+    odrl:constraint [
+        a odrl:LogicalConstraint ;
+        odrl:or (
+            [
+                a odrl:Constraint ;
+                dcterms:description "The Application's usage negatively affects availability or performance of the API Service."^^xsd:string ;
+                odrl:leftOperand tosl:effect ;
+                odrl:operator odrl:isAnyOf ;
+                odrl:rightOperand ( "availabilityDegradation" "performanceDegradation" )
+            ]
+            [
+                a odrl:Constraint ;
+                dcterms:description "The Application is in breach of the API's Content Usage Policies."^^xsd:string ;
+                odrl:leftOperand tosl:compliance ;
+                odrl:operator odrl:neq ;
+                odrl:rightOperand <http://dev.elsevier.com/policy.html>
+            ]
+        )
+    ] .

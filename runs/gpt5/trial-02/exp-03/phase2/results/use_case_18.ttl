@@ -1,0 +1,92 @@
+@prefix : <http://example.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@base <http://example.com> .
+
+:agreement01 a odrl:Agreement, odrl:Asset ;
+    odrl:profile <https://w3id.org/tosl/> ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "Liability disclaimer: except as expressly stated, each party disclaims all liability to the other in connection with performance; and the infringing party will not be liable for special, indirect, or consequential damages (including loss of profits, loss of business, or unfitness for user purposes)."^^xsd:string ;
+    dcterms:creator "ELSEVIER"^^xsd:string ;
+    dcterms:rightsHolder :ELSEVIER ;
+    dcterms:issued "2017-01-01"^^xsd:date ;
+    odrl:permission :permission01 ;
+    tosl:limitationOfLiability :liability01, :liability02, :liability03, :liability04 ;
+    odrl:assigner :ELSEVIER .
+
+:ELSEVIER a tosl:Provider ;
+    dcterms:description "ELSEVIER as the provider of API services."^^xsd:string ;
+    foaf:name "ELSEVIER" ;
+    foaf:homepage <https://www.elsevier.com/> .
+
+:customer a tosl:Customer ;
+    dcterms:description "The customer using Elsevier API services under this Agreement."^^xsd:string .
+
+:services a tosl:Service ;
+    dcterms:description "Elsevier API services."^^xsd:string .
+
+:permission01 a odrl:Permission ;
+    dcterms:description "Customer may use the Elsevier API services subject to this Agreement." ;
+    odrl:action odrl:use ;
+    odrl:target :services ;
+    odrl:assignee :customer .
+
+:expresslyStatedInAgreement a odrl:LeftOperand .
+:isInfringingParty a odrl:LeftOperand .
+
+:liability01 a tosl:Liability ;
+    dcterms:description "Except as expressly stated in this Agreement, ELSEVIER disclaims all liability to Customer in connection with the parties' performance of this Agreement." ;
+    tosl:liableParty :ELSEVIER ;
+    tosl:targetParty :customer ;
+    rdf:value tosl:anyLiability ;
+    tosl:limitation [
+        a odrl:Constraint ;
+        odrl:leftOperand :expresslyStatedInAgreement ;
+        odrl:operator odrl:eq ;
+        odrl:rightOperand "false"^^xsd:boolean
+    ] .
+
+:liability02 a tosl:Liability ;
+    dcterms:description "Except as expressly stated in this Agreement, Customer disclaims all liability to ELSEVIER in connection with the parties' performance of this Agreement." ;
+    tosl:liableParty :customer ;
+    tosl:targetParty :ELSEVIER ;
+    rdf:value tosl:anyLiability ;
+    tosl:limitation [
+        a odrl:Constraint ;
+        odrl:leftOperand :expresslyStatedInAgreement ;
+        odrl:operator odrl:eq ;
+        odrl:rightOperand "false"^^xsd:boolean
+    ] .
+
+:liability03 a tosl:Liability ;
+    dcterms:description "In no event will ELSEVIER, as the infringing party, be liable to Customer for special, indirect, or consequential damages, including but not limited to loss of profits, loss of business, or unfitness for user purposes." ;
+    tosl:liableParty :ELSEVIER ;
+    tosl:targetParty :customer ;
+    rdf:value tosl:anyIndirectDamage, tosl:anyLoss ;
+    tosl:limitation [
+        a odrl:Constraint ;
+        odrl:leftOperand :isInfringingParty ;
+        odrl:operator odrl:eq ;
+        odrl:rightOperand "true"^^xsd:boolean
+    ] .
+
+:liability04 a tosl:Liability ;
+    dcterms:description "In no event will Customer, as the infringing party, be liable to ELSEVIER for special, indirect, or consequential damages, including but not limited to loss of profits, loss of business, or unfitness for user purposes." ;
+    tosl:liableParty :customer ;
+    tosl:targetParty :ELSEVIER ;
+    rdf:value tosl:anyIndirectDamage, tosl:anyLoss ;
+    tosl:limitation [
+        a odrl:Constraint ;
+        odrl:leftOperand :isInfringingParty ;
+        odrl:operator odrl:eq ;
+        odrl:rightOperand "true"^^xsd:boolean
+    ] .
