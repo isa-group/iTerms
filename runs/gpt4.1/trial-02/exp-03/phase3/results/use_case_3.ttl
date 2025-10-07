@@ -1,0 +1,53 @@
+@prefix : <http://example.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@base <http://example.com> .
+
+:Elsevier a tosl:Provider ;
+    dcterms:description "Elsevier is a global information analytics business specializing in science and health."^^xsd:string ;
+    foaf:name "ELSEVIER" ;
+    foaf:homepage <https://www.elsevier.com/> ;
+    odrl:assignerOf :apiAgreement .
+
+:apiAgreement a odrl:Agreement, odrl:Asset ;
+    odrl:profile <https://w3id.org/tosl/> ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "This Agreement governs the use of Elsevier's API services."^^xsd:string ;
+    dcterms:creator "ELSEVIER"^^xsd:string ;
+    dcterms:rightsHolder :Elsevier ;
+    dcterms:issued "2017-01-01"^^xsd:date ;
+    odrl:permission :permission01 ;
+    odrl:assigner :Elsevier .
+
+:customer a tosl:Customer ;
+    dcterms:description "This party represents the customer in the context of the Elsevier API Service Agreement." .
+
+:permission01 a odrl:Permission ;
+    dcterms:description "Elsevier may, at its sole discretion, change the terms of this Agreement at any time, provided reasonable advance notice is given to the customer." ;
+    odrl:action odrl:modify ;
+    odrl:target :apiAgreement ;
+    odrl:assignee :Elsevier ;
+    odrl:constraint [
+        a odrl:Constraint ;
+        dcterms:description "Reasonable advance notice must be provided before changes take effect." ;
+        odrl:leftOperand odrl:delayPeriod ;
+        odrl:operator odrl:gt ;
+        odrl:rightOperand "P0D"^^xsd:duration
+    ] ;
+    odrl:duty [
+        a odrl:Duty ;
+        dcterms:description "Elsevier must give reasonable advance notice to the customer before changing the terms." ;
+        odrl:action odrl:inform ;
+        odrl:target :apiAgreement ;
+        odrl:assignee :Elsevier ;
+        odrl:informedParty :customer
+    ] .

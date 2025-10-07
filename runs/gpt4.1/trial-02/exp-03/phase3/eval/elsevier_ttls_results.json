@@ -1,0 +1,270 @@
+[
+  {
+    "file": "use_case_1.ttl",
+    "outfile": "phase3/results/use_case_1.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.3498542308807373,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_2.ttl",
+    "outfile": "phase3/results/use_case_2.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.2704737186431885,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_3.ttl",
+    "outfile": "phase3/results/use_case_3.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.44866037368774414,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_4.ttl",
+    "outfile": "phase3/results/use_case_4.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.4442417621612549,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_5.ttl",
+    "outfile": "phase3/results/use_case_5.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.24438953399658203,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_6.ttl",
+    "outfile": "phase3/results/use_case_6.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.4882991313934326,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_7.ttl",
+    "outfile": "phase3/results/use_case_7.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.4344155788421631,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_8.ttl",
+    "outfile": "phase3/results/use_case_8.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.38441038131713867,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_9.ttl",
+    "outfile": "phase3/results/use_case_9.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.36948275566101074,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_10.ttl",
+    "outfile": "phase3/results/use_case_10.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.25064992904663086,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_11.ttl",
+    "outfile": "phase3/results/use_case_11.ttl",
+    "passed": false,
+    "errors": 3,
+    "report": {
+      "syntax_valid": true,
+      "conforms": false,
+      "validation_time_sec": 0.48270201683044434,
+      "violations": [
+        {
+          "severity": "http://www.w3.org/ns/shacl#Violation",
+          "sourceShape": "n58cb3e3d049743018b3e715c9cfebde0b52",
+          "sourceConstraintComponent": "http://www.w3.org/ns/shacl#OrConstraintComponent",
+          "focusNode": "http://example.com/prohibition01",
+          "valueNode": "n58cb3e3d049743018b3e715c9cfebde0b3",
+          "resultPath": "http://www.w3.org/ns/odrl/2/constraint",
+          "message": "Each constraint must conform to ConstraintShape or LogicalConstraintShape."
+        },
+        {
+          "severity": "http://www.w3.org/ns/shacl#Violation",
+          "sourceShape": "n58cb3e3d049743018b3e715c9cfebde0b4",
+          "sourceConstraintComponent": "http://www.w3.org/ns/shacl#OrConstraintComponent",
+          "focusNode": "n58cb3e3d049743018b3e715c9cfebde0b3",
+          "valueNode": "http://www.w3.org/ns/odrl/2/target",
+          "resultPath": "http://www.w3.org/ns/odrl/2/leftOperand",
+          "message": "A Constraint must have exactly one odrl:leftOperand."
+        },
+        {
+          "severity": "http://www.w3.org/ns/shacl#Violation",
+          "sourceShape": "n58cb3e3d049743018b3e715c9cfebde0b53",
+          "sourceConstraintComponent": "http://www.w3.org/ns/shacl#NodeConstraintComponent",
+          "focusNode": "http://example.com/agreement01",
+          "valueNode": "http://example.com/prohibition01",
+          "resultPath": "http://www.w3.org/ns/odrl/2/prohibition",
+          "message": "If present, prohibition must conform to ProhibitionShape."
+        }
+      ]
+    }
+  },
+  {
+    "file": "use_case_12.ttl",
+    "outfile": "phase3/results/use_case_12.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.2528362274169922,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_13.ttl",
+    "outfile": "phase3/results/use_case_13.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.49953341484069824,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_14.ttl",
+    "outfile": "phase3/results/use_case_14.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.23645853996276855,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_15.ttl",
+    "outfile": "phase3/results/use_case_15.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.415421724319458,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_16.ttl",
+    "outfile": "phase3/results/use_case_16.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.6843364238739014,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_17.ttl",
+    "outfile": "phase3/results/use_case_17.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.27922797203063965,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_18.ttl",
+    "outfile": "phase3/results/use_case_18.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.23481106758117676,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_19.ttl",
+    "outfile": "phase3/results/use_case_19.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.4679083824157715,
+      "violations": []
+    }
+  },
+  {
+    "file": "use_case_20.ttl",
+    "outfile": "phase3/results/use_case_20.ttl",
+    "passed": true,
+    "errors": 0,
+    "report": {
+      "syntax_valid": true,
+      "conforms": true,
+      "validation_time_sec": 0.3541758060455322,
+      "violations": []
+    }
+  }
+]
