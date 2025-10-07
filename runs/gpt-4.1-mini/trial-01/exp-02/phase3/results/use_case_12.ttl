@@ -1,0 +1,38 @@
+@prefix : <http://example.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@base <http://example.com> .
+
+:apiService a odrl:Asset ;
+    dcterms:description "The API Service provided under the agreement." .
+
+:customer a tosl:Customer ;
+    dcterms:description "The customer party under the API Service Agreement." .
+
+:OpenAI a tosl:Provider ;
+    dcterms:description "ELSEVIER is the provider of the API Service." .
+
+:obligation01 a odrl:Duty ;
+    dcterms:description "The Application must avoid excessive and unnecessary use of the API Service that may cause performance degradation." ;
+    odrl:action odrl:use ;
+    odrl:target :apiService ;
+    odrl:assignee :customer .
+
+:agreement01 a odrl:Agreement, odrl:Asset ;
+    odrl:profile <https://w3id.org/tosl/> ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "Agreement governing the use of the API Service by the customer, including obligations to avoid excessive and unnecessary use that may degrade performance."^^xsd:string ;
+    dcterms:creator "ELSEVIER"^^xsd:string ;
+    dcterms:rightsHolder :OpenAI ;
+    dcterms:issued "2017"^^xsd:gYear ;
+    odrl:obligation :obligation01 ;
+    odrl:assigner :OpenAI .

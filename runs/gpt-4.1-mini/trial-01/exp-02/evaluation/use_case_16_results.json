@@ -1,0 +1,50 @@
+{
+  "file": "phase3/results/use_case_16.ttl",
+  "deontic": {
+    "total_rules": 2,
+    "duties": [
+      {
+        "id": "n893c951f38ac46a5b6662d9342fdb48eb6",
+        "actions": [
+          "odrl:obtainConsent"
+        ],
+        "targets": [
+          ":applicationContent"
+        ],
+        "assignee": ":customer",
+        "assigner": null,
+        "description": null
+      }
+    ],
+    "permissions": [],
+    "prohibitions": [
+      {
+        "id": ":prohibition01",
+        "actions": [
+          "odrl:display"
+        ],
+        "targets": [
+          ":applicationContent"
+        ],
+        "assignee": ":customer",
+        "assigner": null,
+        "description": null
+      }
+    ]
+  },
+  "unfair_terms": {
+    "change": [],
+    "termination": [],
+    "contract_by_use": [],
+    "choice_of_law": [],
+    "jurisdiction": [],
+    "arbitration": [],
+    "content_removal": [],
+    "limitation_of_liability": []
+  },
+  "_meta": {
+    "calls": 12,
+    "ok": 12,
+    "ms_total": 11287
+  }
+}

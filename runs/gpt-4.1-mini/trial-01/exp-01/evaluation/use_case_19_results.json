@@ -1,0 +1,50 @@
+{
+  "file": "phase3/results/use_case_19.ttl",
+  "deontic": {
+    "total_rules": 2,
+    "duties": [
+      {
+        "id": ":obligationTerminate",
+        "actions": [
+          "tosl:terminate"
+        ],
+        "targets": [
+          ":APIService"
+        ],
+        "assignee": ":Developer",
+        "assigner": null,
+        "description": null
+      }
+    ],
+    "permissions": [
+      {
+        "id": ":permissionUse",
+        "actions": [
+          "odrl:use"
+        ],
+        "targets": [
+          ":APIService"
+        ],
+        "assignee": ":Developer",
+        "assigner": null,
+        "description": null
+      }
+    ],
+    "prohibitions": []
+  },
+  "unfair_terms": {
+    "change": [],
+    "termination": [],
+    "contract_by_use": [],
+    "choice_of_law": [],
+    "jurisdiction": [],
+    "arbitration": [],
+    "content_removal": [],
+    "limitation_of_liability": []
+  },
+  "_meta": {
+    "calls": 12,
+    "ok": 12,
+    "ms_total": 9713
+  }
+}

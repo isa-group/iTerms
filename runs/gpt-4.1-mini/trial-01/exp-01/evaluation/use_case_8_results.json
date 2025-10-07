@@ -1,0 +1,44 @@
+{
+  "file": "phase3/results/use_case_8.ttl",
+  "deontic": {
+    "total_rules": 1,
+    "duties": [],
+    "permissions": [
+      {
+        "id": ":permission01",
+        "actions": [
+          "odrl:modify"
+        ],
+        "targets": [
+          ":apiService"
+        ],
+        "assignee": ":ELSEVIER",
+        "assigner": null,
+        "description": null
+      }
+    ],
+    "prohibitions": []
+  },
+  "unfair_terms": {
+    "change": [
+      {
+        "permission": ":permission01",
+        "description": "In case of breach of the terms and conditions of this Agreement, ELSEVIER reserves the right to modify (block, change, suspend, remove or disable access to) the APIs and any of its services at any time upon reasonable notice to Developer.",
+        "action": "odrl:modify",
+        "target": ":apiService"
+      }
+    ],
+    "termination": [],
+    "contract_by_use": [],
+    "choice_of_law": [],
+    "jurisdiction": [],
+    "arbitration": [],
+    "content_removal": [],
+    "limitation_of_liability": []
+  },
+  "_meta": {
+    "calls": 12,
+    "ok": 12,
+    "ms_total": 5269
+  }
+}

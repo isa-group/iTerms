@@ -1,0 +1,36 @@
+{
+  "file": "phase3/results/use_case_20.ttl",
+  "deontic": {
+    "total_rules": 0,
+    "duties": [],
+    "permissions": [],
+    "prohibitions": []
+  },
+  "unfair_terms": {
+    "change": [],
+    "termination": [],
+    "contract_by_use": [],
+    "choice_of_law": [
+      {
+        "dispute": ":agreement",
+        "litigation": ":litigation01",
+        "law": ":netherlandsLaw"
+      }
+    ],
+    "jurisdiction": [
+      {
+        "dispute": ":agreement",
+        "litigation": ":litigation01",
+        "place": ":netherlandsCourts"
+      }
+    ],
+    "arbitration": [],
+    "content_removal": [],
+    "limitation_of_liability": []
+  },
+  "_meta": {
+    "calls": 12,
+    "ok": 12,
+    "ms_total": 11261
+  }
+}

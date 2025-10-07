@@ -1,0 +1,44 @@
+{
+  "file": "phase3/results/use_case_3.ttl",
+  "deontic": {
+    "total_rules": 1,
+    "duties": [],
+    "permissions": [
+      {
+        "id": ":permission-modify-agreement",
+        "actions": [
+          "odrl:modify"
+        ],
+        "targets": [
+          ":service"
+        ],
+        "assignee": ":ELSEVIER",
+        "assigner": null,
+        "description": null
+      }
+    ],
+    "prohibitions": []
+  },
+  "unfair_terms": {
+    "change": [
+      {
+        "permission": ":permission-modify-agreement",
+        "description": "Elsevier reserves the right, at its sole discretion, to change the terms of this Agreement at any time with reasonable advance notice given to You.",
+        "action": "odrl:modify",
+        "target": ":service"
+      }
+    ],
+    "termination": [],
+    "contract_by_use": [],
+    "choice_of_law": [],
+    "jurisdiction": [],
+    "arbitration": [],
+    "content_removal": [],
+    "limitation_of_liability": []
+  },
+  "_meta": {
+    "calls": 12,
+    "ok": 12,
+    "ms_total": 10181
+  }
+}

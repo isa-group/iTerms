@@ -1,0 +1,50 @@
+{
+  "file": "phase3/results/use_case_12.ttl",
+  "deontic": {
+    "total_rules": 2,
+    "duties": [],
+    "permissions": [
+      {
+        "id": ":permission01",
+        "actions": [
+          "odrl:use"
+        ],
+        "targets": [
+          ":APIService"
+        ],
+        "assignee": ":Application",
+        "assigner": null,
+        "description": null
+      }
+    ],
+    "prohibitions": [
+      {
+        "id": ":prohibition01",
+        "actions": [
+          "odrl:use"
+        ],
+        "targets": [
+          ":APIService"
+        ],
+        "assignee": ":Application",
+        "assigner": null,
+        "description": null
+      }
+    ]
+  },
+  "unfair_terms": {
+    "change": [],
+    "termination": [],
+    "contract_by_use": [],
+    "choice_of_law": [],
+    "jurisdiction": [],
+    "arbitration": [],
+    "content_removal": [],
+    "limitation_of_liability": []
+  },
+  "_meta": {
+    "calls": 12,
+    "ok": 12,
+    "ms_total": 11553
+  }
+}

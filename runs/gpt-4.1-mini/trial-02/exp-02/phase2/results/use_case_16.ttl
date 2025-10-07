@@ -1,0 +1,60 @@
+@prefix : <http://example.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@base <http://example.com> .
+
+:advertising a odrl:Asset ;
+    dcterms:description "Advertising content inside or outside the Application." .
+
+:customer a tosl:Customer ;
+    dcterms:description "The Developer or customer using the API service." .
+
+:Elsevier a tosl:Provider ;
+    dcterms:description "Elsevier is the provider of the API service." .
+
+:prohibition01 a odrl:Prohibition ;
+    dcterms:description "The Developer shall not display any advertising inside the Application or use any content as obtained via the API outside the Application, unless permitted by Elsevier in writing." ;
+    odrl:action odrl:display ;
+    odrl:target :advertising ;
+    odrl:assignee :customer ;
+    odrl:constraint [
+        a odrl:LogicalConstraint ;
+        odrl:or (
+            [
+                a odrl:Constraint ;
+                dcterms:description "Advertising displayed inside the Application is prohibited unless permitted by Elsevier in writing." ;
+                odrl:leftOperand tosl:justification ;
+                odrl:operator odrl:neq ;
+                odrl:rightOperand :writtenPermission
+            ]
+            [
+                a odrl:Constraint ;
+                dcterms:description "Use of content obtained via the API outside the Application is prohibited unless permitted by Elsevier in writing." ;
+                odrl:leftOperand tosl:justification ;
+                odrl:operator odrl:neq ;
+                odrl:rightOperand :writtenPermission
+            ]
+        )
+    ] .
+
+:writtenPermission a odrl:Asset ;
+    dcterms:description "Written permission granted by Elsevier." .
+
+:agreement01 a odrl:Agreement, odrl:Asset ;
+    odrl:profile <https://w3id.org/tosl/> ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "Agreement governing the use of Elsevier API services including restrictions on advertising and content use."^^xsd:string ;
+    dcterms:creator "Elsevier"^^xsd:string ;
+    dcterms:rightsHolder :Elsevier ;
+    dcterms:issued "2017"^^xsd:gYear ;
+    odrl:prohibition :prohibition01 ;
+    odrl:assigner :Elsevier .
