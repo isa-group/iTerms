@@ -1,0 +1,74 @@
+{
+  "file": "phase3/results/use_case_15.ttl",
+  "deontic": {
+    "total_rules": 4,
+    "duties": [
+      {
+        "id": "n205f0f0b14084bcf9bebf07a86261863b1",
+        "actions": [
+          "odrl:obtainConsent"
+        ],
+        "targets": [
+          ":trademarksLogosBrandFeatures"
+        ],
+        "assignee": ":Developer",
+        "assigner": null,
+        "description": null
+      },
+      {
+        "id": "n205f0f0b14084bcf9bebf07a86261863b2",
+        "actions": [
+          "odrl:obtainConsent"
+        ],
+        "targets": [
+          ":pressReleases"
+        ],
+        "assignee": ":Developer",
+        "assigner": null,
+        "description": null
+      }
+    ],
+    "permissions": [
+      {
+        "id": ":permissionUseBranding",
+        "actions": [
+          "odrl:use"
+        ],
+        "targets": [
+          ":trademarksLogosBrandFeatures"
+        ],
+        "assignee": ":Developer",
+        "assigner": null,
+        "description": null
+      },
+      {
+        "id": ":permissionPressReleasesApproval",
+        "actions": [
+          "tosl:publish"
+        ],
+        "targets": [
+          ":pressReleases"
+        ],
+        "assignee": ":Developer",
+        "assigner": null,
+        "description": null
+      }
+    ],
+    "prohibitions": []
+  },
+  "unfair_terms": {
+    "change": [],
+    "termination": [],
+    "contract_by_use": [],
+    "choice_of_law": [],
+    "jurisdiction": [],
+    "arbitration": [],
+    "content_removal": [],
+    "limitation_of_liability": []
+  },
+  "_meta": {
+    "calls": 12,
+    "ok": 12,
+    "ms_total": 12036
+  }
+}

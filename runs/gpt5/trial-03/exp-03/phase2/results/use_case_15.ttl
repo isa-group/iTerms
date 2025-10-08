@@ -1,0 +1,87 @@
+@prefix : <http://example.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@base <http://example.com> .
+
+:Elsevier a tosl:Provider ;
+    dcterms:description "Elsevier B.V., provider of the API Service."^^xsd:string ;
+    foaf:name "Elsevier" ;
+    foaf:homepage <https://www.elsevier.com/> ;
+    odrl:assignerOf :agreement01 .
+
+:developer a tosl:BusinessCustomer ;
+    dcterms:description "The Developer integrating and promoting an application using Elsevier APIs."^^xsd:string .
+
+:elsevierBrandFeatures a odrl:Asset ;
+    dcterms:description "Elsevier trademarks, logos, and other brand features."^^xsd:string .
+
+:pressReleases a tosl:UserContent ;
+    dcterms:description "Press releases regarding this Agreement or the relationship of the parties."^^xsd:string .
+
+:agreement01 a odrl:Agreement ;
+    odrl:profile <https://w3id.org/tosl/> ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "Clause 3.3: Developer must obtain written permission in advance to use Elsevier brand features for promotion; any press releases about the Agreement or the parties' relationship require prior approval of both parties."^^xsd:string ;
+    dcterms:creator "Elsevier"^^xsd:string ;
+    dcterms:rightsHolder :Elsevier ;
+    dcterms:issued "2017-01-01"^^xsd:date ;
+    odrl:permission :permission01, :permission02 ;
+    odrl:assigner :Elsevier .
+
+:permission01 a odrl:Permission ;
+    dcterms:description "Developer may use Elsevier’s trademarks, logos, or other brand features for promoting the Application only with prior written permission from Elsevier."^^xsd:string ;
+    odrl:action odrl:use ;
+    odrl:target :elsevierBrandFeatures ;
+    odrl:assignee :developer ;
+    odrl:duty [
+        a odrl:Duty ;
+        dcterms:description "Obtain written permission in advance from Elsevier before any promotional use of brand features."^^xsd:string ;
+        odrl:action odrl:obtainConsent ;
+        odrl:target :elsevierBrandFeatures ;
+        odrl:assignee :developer ;
+        odrl:constraint [
+            a odrl:Constraint ;
+            odrl:leftOperand tosl:consentType ;
+            odrl:operator odrl:eq ;
+            odrl:rightOperand :writtenConsent
+        ]
+    ] .
+
+:permission02 a odrl:Permission ;
+    dcterms:description "Any press releases regarding this Agreement or the relationship of the parties may be published only with the prior approval of both parties."^^xsd:string ;
+    odrl:action tosl:publish ;
+    odrl:target :pressReleases ;
+    odrl:assignee :developer ;
+    odrl:duty [
+        a odrl:Duty ;
+        dcterms:description "Obtain prior approval from both Elsevier and the Developer before issuing any such press release."^^xsd:string ;
+        odrl:action odrl:obtainConsent ;
+        odrl:target :pressReleases ;
+        odrl:assignee :developer ;
+        odrl:constraint [
+            a odrl:LogicalConstraint ;
+            odrl:and (
+                [
+                    a odrl:Constraint ;
+                    odrl:leftOperand odrl:recipient ;
+                    odrl:operator odrl:isAllOf ;
+                    odrl:rightOperand ( :Elsevier :developer )
+                ]
+                [
+                    a odrl:Constraint ;
+                    odrl:leftOperand tosl:consentType ;
+                    odrl:operator odrl:eq ;
+                    odrl:rightOperand :priorApproval
+                ]
+            )
+        ]
+    ] .

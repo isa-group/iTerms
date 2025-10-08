@@ -1,0 +1,113 @@
+{
+  "file": "phase3/results/use_case_19.ttl",
+  "deontic": {
+    "total_rules": 6,
+    "duties": [
+      {
+        "id": ":obligationAccept",
+        "actions": [
+          "tosl:consent"
+        ],
+        "targets": [
+          ":agreement01"
+        ],
+        "assignee": ":developer",
+        "assigner": null,
+        "description": null
+      },
+      {
+        "id": "n8838c2aeddce4a73a4e4058368318213b1",
+        "actions": [
+          "odrl:inform"
+        ],
+        "targets": [
+          ":agreement01"
+        ],
+        "assignee": ":developer",
+        "assigner": null,
+        "description": null
+      },
+      {
+        "id": "n8838c2aeddce4a73a4e4058368318213b3",
+        "actions": [
+          "odrl:inform"
+        ],
+        "targets": [
+          ":agreement01"
+        ],
+        "assignee": ":Elsevier",
+        "assigner": null,
+        "description": null
+      }
+    ],
+    "permissions": [
+      {
+        "id": ":permTerminateDev",
+        "actions": [
+          "tosl:terminate"
+        ],
+        "targets": [
+          ":agreement01"
+        ],
+        "assignee": ":developer",
+        "assigner": null,
+        "description": null
+      },
+      {
+        "id": ":permTerminateElsevier",
+        "actions": [
+          "tosl:terminate"
+        ],
+        "targets": [
+          ":agreement01"
+        ],
+        "assignee": ":Elsevier",
+        "assigner": null,
+        "description": null
+      },
+      {
+        "id": ":permTerminateOnDeactivation",
+        "actions": [
+          "tosl:terminate"
+        ],
+        "targets": [
+          ":agreement01"
+        ],
+        "assignee": ":Elsevier",
+        "assigner": null,
+        "description": null
+      }
+    ],
+    "prohibitions": []
+  },
+  "unfair_terms": {
+    "change": [],
+    "termination": [
+      {
+        "permission": ":permTerminateElsevier",
+        "description": "Elsevier may terminate this Agreement by providing written notice.",
+        "action": "tosl:terminate",
+        "assignee": ":Elsevier",
+        "target": ":agreement01"
+      },
+      {
+        "permission": ":permTerminateOnDeactivation",
+        "description": "Elsevier may terminate this Agreement upon deactivation of the API Key by Elsevier.",
+        "action": "tosl:terminate",
+        "assignee": ":Elsevier",
+        "target": ":agreement01"
+      }
+    ],
+    "contract_by_use": [],
+    "choice_of_law": [],
+    "jurisdiction": [],
+    "arbitration": [],
+    "content_removal": [],
+    "limitation_of_liability": []
+  },
+  "_meta": {
+    "calls": 12,
+    "ok": 12,
+    "ms_total": 11863
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "file": "phase3/results/use_case_19.ttl",
+  "deontic": {
+    "total_rules": 7,
+    "duties": [
+      {
+        "id": ":obligationAcceptance",
+        "actions": [
+          "tosl:consent"
+        ],
+        "targets": [
+          ":agreement01"
+        ],
+        "assignee": ":developer",
+        "assigner": null,
+        "description": null
+      },
+      {
+        "id": "nac1b5eaf662f4f168f294171cf25ceaeb1",
+        "actions": [
+          "odrl:inform"
+        ],
+        "targets": [
+          ":agreement01"
+        ],
+        "assignee": ":Elsevier",
+        "assigner": null,
+        "description": null
+      },
+      {
+        "id": "nac1b5eaf662f4f168f294171cf25ceaeb3",
+        "actions": [
+          "odrl:inform"
+        ],
+        "targets": [
+          ":agreement01"
+        ],
+        "assignee": ":developer",
+        "assigner": null,
+        "description": null
+      },
+      {
+        "id": "nac1b5eaf662f4f168f294171cf25ceaeb6",
+        "actions": [
+          "tosl:terminate"
+        ],
+        "targets": [
+          ":agreement01"
+        ],
+        "assignee": ":Elsevier",
+        "assigner": null,
+        "description": null
+      }
+    ],
+    "permissions": [
+      {
+        "id": ":permTerminateByElsevier",
+        "actions": [
+          "tosl:terminate"
+        ],
+        "targets": [
+          ":agreement01"
+        ],
+        "assignee": ":Elsevier",
+        "assigner": null,
+        "description": null
+      },
+      {
+        "id": ":permTerminateByDeveloper",
+        "actions": [
+          "tosl:terminate"
+        ],
+        "targets": [
+          ":agreement01"
+        ],
+        "assignee": ":developer",
+        "assigner": null,
+        "description": null
+      },
+      {
+        "id": ":permDeactivateAPIKey",
+        "actions": [
+          "odrl:modify"
+        ],
+        "targets": [
+          ":apiKey"
+        ],
+        "assignee": ":Elsevier",
+        "assigner": null,
+        "description": null
+      }
+    ],
+    "prohibitions": []
+  },
+  "unfair_terms": {
+    "change": [
+      {
+        "permission": ":permDeactivateAPIKey",
+        "description": "Elsevier may deactivate the API Key; deactivation ends the Agreement.",
+        "action": "odrl:modify",
+        "target": ":apiKey"
+      }
+    ],
+    "termination": [
+      {
+        "permission": ":permTerminateByElsevier",
+        "description": "Elsevier may terminate the Agreement in writing.",
+        "action": "tosl:terminate",
+        "assignee": ":Elsevier",
+        "target": ":agreement01"
+      }
+    ],
+    "contract_by_use": [],
+    "choice_of_law": [],
+    "jurisdiction": [],
+    "arbitration": [],
+    "content_removal": [],
+    "limitation_of_liability": []
+  },
+  "_meta": {
+    "calls": 12,
+    "ok": 12,
+    "ms_total": 11098
+  }
+}

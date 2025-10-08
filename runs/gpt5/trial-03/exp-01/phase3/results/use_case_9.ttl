@@ -1,0 +1,43 @@
+@prefix : <http://example.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@base <http://example.com> .
+
+:ELSEVIER a tosl:Provider ;
+    dcterms:description "Elsevier B.V., provider of the Elsevier APIs and related services."^^xsd:string ;
+    foaf:name "Elsevier" .
+
+:apiKeys a odrl:Asset ;
+    dcterms:description "API Keys used to access the Elsevier APIs."^^xsd:string .
+
+:agreement01 a odrl:Agreement ;
+    odrl:profile <https://w3id.org/tosl/> ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "Terms governing the use of Elsevier APIs and related credentials."^^xsd:string ;
+    dcterms:creator "ELSEVIER"^^xsd:string ;
+    dcterms:rightsHolder :ELSEVIER ;
+    dcterms:issued "2017-01-01"^^xsd:date ;
+    odrl:permission :permission01 ;
+    odrl:assigner :ELSEVIER .
+
+:permission01 a odrl:Permission ;
+    dcterms:description "Elsevier may deactivate API Keys that have not been used to access the APIs for 90 days."^^xsd:string ;
+    odrl:action tosl:terminate ;
+    odrl:target :apiKeys ;
+    odrl:assignee :ELSEVIER ;
+    odrl:constraint [
+        a odrl:Constraint ;
+        dcterms:description "Applies when an API Key has an inactivity period of at least 90 days."^^xsd:string ;
+        odrl:leftOperand tosl:inactivityPeriod ;
+        odrl:operator odrl:gteq ;
+        odrl:rightOperand "P90D"^^xsd:duration
+    ] .

@@ -1,0 +1,45 @@
+{
+  "file": "phase3/results/use_case_7.ttl",
+  "deontic": {
+    "total_rules": 1,
+    "duties": [],
+    "permissions": [
+      {
+        "id": ":permission01",
+        "actions": [
+          "tosl:terminate"
+        ],
+        "targets": [
+          ":APIService"
+        ],
+        "assignee": ":Elsevier",
+        "assigner": null,
+        "description": null
+      }
+    ],
+    "prohibitions": []
+  },
+  "unfair_terms": {
+    "change": [],
+    "termination": [
+      {
+        "permission": ":permission01",
+        "description": "Elsevier may immediately suspend the Application's access to the API Service if the Application's usage negatively affects availability or performance, or breaches the API's Content Usage Policies.",
+        "action": "tosl:terminate",
+        "assignee": ":Elsevier",
+        "target": ":APIService"
+      }
+    ],
+    "contract_by_use": [],
+    "choice_of_law": [],
+    "jurisdiction": [],
+    "arbitration": [],
+    "content_removal": [],
+    "limitation_of_liability": []
+  },
+  "_meta": {
+    "calls": 12,
+    "ok": 12,
+    "ms_total": 12004
+  }
+}

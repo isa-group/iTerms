@@ -1,0 +1,57 @@
+{
+  "file": "phase3/results/use_case_8.ttl",
+  "deontic": {
+    "total_rules": 2,
+    "duties": [
+      {
+        "id": "nbc6b03bc3039467e8378027ee5d52a8bb2",
+        "actions": [
+          "odrl:inform"
+        ],
+        "targets": [
+          ":apisAndServices"
+        ],
+        "assignee": ":ELSEVIER",
+        "assigner": null,
+        "description": null
+      }
+    ],
+    "permissions": [
+      {
+        "id": ":permission01",
+        "actions": [
+          "tosl:remove"
+        ],
+        "targets": [
+          ":apisAndServices"
+        ],
+        "assignee": ":ELSEVIER",
+        "assigner": null,
+        "description": null
+      }
+    ],
+    "prohibitions": []
+  },
+  "unfair_terms": {
+    "change": [],
+    "termination": [],
+    "contract_by_use": [],
+    "choice_of_law": [],
+    "jurisdiction": [],
+    "arbitration": [],
+    "content_removal": [
+      {
+        "permission": ":permission01",
+        "action": "tosl:remove",
+        "assignee": ":ELSEVIER",
+        "target": ":apisAndServices"
+      }
+    ],
+    "limitation_of_liability": []
+  },
+  "_meta": {
+    "calls": 12,
+    "ok": 12,
+    "ms_total": 5936
+  }
+}

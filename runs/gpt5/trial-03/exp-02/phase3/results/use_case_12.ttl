@@ -1,0 +1,56 @@
+@prefix : <http://example.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@base <http://example.com> .
+
+:ELSEVIER a tosl:Provider ;
+    dcterms:description "Elsevier is the provider of the API Service."^^xsd:string ;
+    foaf:name "Elsevier" .
+
+:customer a tosl:Customer ;
+    dcterms:description "This party represents the customer using the Elsevier API Service."^^xsd:string .
+
+:apiService a tosl:Service ;
+    dcterms:description "Elsevier API Service."^^xsd:string .
+
+:agreement01 a odrl:Agreement ;
+    odrl:profile <https://w3id.org/tosl/> ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "Clause 3.1.3: The Application will avoid excessive and unnecessary use of the API Service that may cause performance degradation."^^xsd:string ;
+    dcterms:creator "Elsevier"^^xsd:string ;
+    dcterms:rightsHolder :ELSEVIER ;
+    dcterms:issued "2017"^^xsd:gYear ;
+    odrl:obligation :obligation01 ;
+    odrl:assigner :ELSEVIER .
+
+:obligation01 a odrl:Duty ;
+    dcterms:description "Customer must avoid excessive or unnecessary use of the API Service that may cause performance degradation."^^xsd:string ;
+    odrl:action odrl:use ;
+    odrl:target :apiService ;
+    odrl:assignee :customer ;
+    odrl:constraint [
+        a odrl:LogicalConstraint ;
+        odrl:and (
+            [
+                a odrl:Constraint ;
+                odrl:leftOperand odrl:purpose ;
+                odrl:operator odrl:eq ;
+                odrl:rightOperand :necessaryUse
+            ]
+            [
+                a odrl:Constraint ;
+                odrl:leftOperand tosl:effect ;
+                odrl:operator odrl:neq ;
+                odrl:rightOperand :performanceDegradation
+            ]
+        )
+    ] .

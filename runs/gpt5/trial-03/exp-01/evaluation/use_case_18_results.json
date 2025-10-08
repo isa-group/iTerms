@@ -1,0 +1,52 @@
+{
+  "file": "phase3/results/use_case_18.ttl",
+  "deontic": {
+    "total_rules": 1,
+    "duties": [],
+    "permissions": [
+      {
+        "id": ":permission01",
+        "actions": [
+          "odrl:use"
+        ],
+        "targets": [
+          ":apiServices"
+        ],
+        "assignee": ":customer",
+        "assigner": null,
+        "description": null
+      }
+    ],
+    "prohibitions": []
+  },
+  "unfair_terms": {
+    "change": [],
+    "termination": [],
+    "contract_by_use": [],
+    "choice_of_law": [],
+    "jurisdiction": [],
+    "arbitration": [],
+    "content_removal": [],
+    "limitation_of_liability": [
+      {
+        "liability": ":liability01",
+        "description": "Except as expressly stated in the Agreement, Elsevier disclaims liability to the customer in connection with performance of the Agreement; in no event is Elsevier liable for special, indirect, or consequential damages, including loss of profits, loss of business, or unfitness for user purposes.",
+        "limitationOn": ":agreement01",
+        "type": "tosl:anyIndirectDamage",
+        "liableParty": ":ELSEVIER"
+      },
+      {
+        "liability": ":liability01",
+        "description": "Except as expressly stated in the Agreement, Elsevier disclaims liability to the customer in connection with performance of the Agreement; in no event is Elsevier liable for special, indirect, or consequential damages, including loss of profits, loss of business, or unfitness for user purposes.",
+        "limitationOn": ":agreement01",
+        "type": "tosl:anyLoss",
+        "liableParty": ":ELSEVIER"
+      }
+    ]
+  },
+  "_meta": {
+    "calls": 12,
+    "ok": 12,
+    "ms_total": 12981
+  }
+}

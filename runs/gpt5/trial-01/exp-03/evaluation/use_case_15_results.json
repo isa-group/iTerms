@@ -1,0 +1,86 @@
+{
+  "file": "phase3/results/use_case_15.ttl",
+  "deontic": {
+    "total_rules": 5,
+    "duties": [
+      {
+        "id": "nb926188086734afa8b14e265efe79ce2b2",
+        "actions": [
+          "odrl:obtainConsent"
+        ],
+        "targets": [
+          ":brandFeatures"
+        ],
+        "assignee": ":developer",
+        "assigner": null,
+        "description": null
+      },
+      {
+        "id": "nb926188086734afa8b14e265efe79ce2b3",
+        "actions": [
+          "tosl:consent"
+        ],
+        "targets": [
+          ":pressReleases"
+        ],
+        "assignee": ":Elsevier",
+        "assigner": null,
+        "description": null
+      },
+      {
+        "id": "nb926188086734afa8b14e265efe79ce2b4",
+        "actions": [
+          "tosl:consent"
+        ],
+        "targets": [
+          ":pressReleases"
+        ],
+        "assignee": ":developer",
+        "assigner": null,
+        "description": null
+      }
+    ],
+    "permissions": [
+      {
+        "id": ":permission01",
+        "actions": [
+          "odrl:use"
+        ],
+        "targets": [
+          ":brandFeatures"
+        ],
+        "assignee": ":developer",
+        "assigner": null,
+        "description": null
+      },
+      {
+        "id": ":permission02",
+        "actions": [
+          "tosl:publish"
+        ],
+        "targets": [
+          ":pressReleases"
+        ],
+        "assignee": ":developer",
+        "assigner": null,
+        "description": null
+      }
+    ],
+    "prohibitions": []
+  },
+  "unfair_terms": {
+    "change": [],
+    "termination": [],
+    "contract_by_use": [],
+    "choice_of_law": [],
+    "jurisdiction": [],
+    "arbitration": [],
+    "content_removal": [],
+    "limitation_of_liability": []
+  },
+  "_meta": {
+    "calls": 12,
+    "ok": 12,
+    "ms_total": 13099
+  }
+}

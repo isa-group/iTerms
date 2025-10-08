@@ -1,0 +1,48 @@
+@prefix : <http://example.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@base <http://example.com> .
+
+:Elsevier a tosl:Provider ;
+    dcterms:description "Elsevier is a global information analytics business specializing in science and health."^^xsd:string ;
+    foaf:name "Elsevier" ;
+    foaf:homepage <https://www.elsevier.com/> ;
+    odrl:assignerOf :apiAccess .
+
+:apiAccess a tosl:Service ;
+    dcterms:description "Access to Elsevier APIs and related services." .
+
+:developer a tosl:Customer ;
+    dcterms:description "The developer party using Elsevier APIs under the API Service Agreement." .
+
+:agreement01 a odrl:Agreement, odrl:Asset ;
+    odrl:profile <https://w3id.org/tosl/> ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "This Agreement governs the use of Elsevier APIs and related services by developers."^^xsd:string ;
+    dcterms:creator "Elsevier"^^xsd:string ;
+    dcterms:rightsHolder :Elsevier ;
+    dcterms:issued "2017-01-01"^^xsd:date ;
+    odrl:permission :permission01 ;
+    odrl:assigner :Elsevier .
+
+:permission01 a odrl:Permission ;
+    dcterms:description "In case of breach of the Agreement, Elsevier may block, change, suspend, remove or disable access to the APIs and any of its services at any time upon reasonable notice to Developer." ;
+    odrl:action tosl:remove ;
+    odrl:target :apiAccess ;
+    odrl:assignee :Elsevier ;
+    odrl:constraint [
+        a odrl:Constraint ;
+        dcterms:description "This permission is triggered by breach of the terms and conditions of the Agreement." ;
+        odrl:leftOperand tosl:effect ;
+        odrl:operator odrl:eq ;
+        odrl:rightOperand tosl:breachOfContract
+    ] .

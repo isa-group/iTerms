@@ -1,0 +1,57 @@
+{
+  "file": "phase3/results/use_case_19.ttl",
+  "deontic": {
+    "total_rules": 2,
+    "duties": [],
+    "permissions": [
+      {
+        "id": ":permission01",
+        "actions": [
+          "tosl:terminate"
+        ],
+        "targets": [
+          ":agreement01"
+        ],
+        "assignee": ":ELSEVIER",
+        "assigner": null,
+        "description": null
+      },
+      {
+        "id": ":permission02",
+        "actions": [
+          "tosl:terminate"
+        ],
+        "targets": [
+          ":agreement01"
+        ],
+        "assignee": ":developer",
+        "assigner": null,
+        "description": null
+      }
+    ],
+    "prohibitions": []
+  },
+  "unfair_terms": {
+    "change": [],
+    "termination": [
+      {
+        "permission": ":permission01",
+        "description": "Either party may terminate this Agreement in writing, or the Agreement terminates if Elsevier deactivates the API Key.",
+        "action": "tosl:terminate",
+        "assignee": ":ELSEVIER",
+        "target": ":agreement01"
+      }
+    ],
+    "contract_by_use": [],
+    "choice_of_law": [],
+    "jurisdiction": [],
+    "arbitration": [],
+    "content_removal": [],
+    "limitation_of_liability": []
+  },
+  "_meta": {
+    "calls": 12,
+    "ok": 12,
+    "ms_total": 12794
+  }
+}

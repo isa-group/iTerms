@@ -1,0 +1,76 @@
+{
+  "file": "phase3/results/use_case_19.ttl",
+  "deontic": {
+    "total_rules": 3,
+    "duties": [],
+    "permissions": [
+      {
+        "id": ":permission01",
+        "actions": [
+          "tosl:terminate"
+        ],
+        "targets": [
+          ":agreement01"
+        ],
+        "assignee": ":Elsevier",
+        "assigner": null,
+        "description": null
+      },
+      {
+        "id": ":permission02",
+        "actions": [
+          "tosl:terminate"
+        ],
+        "targets": [
+          ":agreement01"
+        ],
+        "assignee": ":developer",
+        "assigner": null,
+        "description": null
+      },
+      {
+        "id": ":permission03",
+        "actions": [
+          "tosl:terminate"
+        ],
+        "targets": [
+          ":agreement01"
+        ],
+        "assignee": ":Elsevier",
+        "assigner": null,
+        "description": null
+      }
+    ],
+    "prohibitions": []
+  },
+  "unfair_terms": {
+    "change": [],
+    "termination": [
+      {
+        "permission": ":permission01",
+        "description": "Elsevier may terminate this Agreement by providing written notice.",
+        "action": "tosl:terminate",
+        "assignee": ":Elsevier",
+        "target": ":agreement01"
+      },
+      {
+        "permission": ":permission03",
+        "description": "Elsevier may terminate this Agreement if the API Key is deactivated.",
+        "action": "tosl:terminate",
+        "assignee": ":Elsevier",
+        "target": ":agreement01"
+      }
+    ],
+    "contract_by_use": [],
+    "choice_of_law": [],
+    "jurisdiction": [],
+    "arbitration": [],
+    "content_removal": [],
+    "limitation_of_liability": []
+  },
+  "_meta": {
+    "calls": 12,
+    "ok": 12,
+    "ms_total": 13273
+  }
+}

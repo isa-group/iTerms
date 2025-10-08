@@ -1,0 +1,55 @@
+@prefix : <http://example.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@base <http://example.com> .
+
+:agreement01 a odrl:Agreement ;
+    odrl:profile <https://w3id.org/tosl/> ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "Elsevier API Service Agreement (2017)."^^xsd:string ;
+    dcterms:creator "ELSEVIER"^^xsd:string ;
+    dcterms:rightsHolder :Elsevier ;
+    dcterms:issued "2017"^^xsd:gYear ;
+    odrl:permission :permission01 ;
+    tosl:limitationOfLiability :liability01 ;
+    odrl:assigner :Elsevier .
+
+:Elsevier a tosl:Provider ;
+    dcterms:description "Elsevier is the provider of the API services."^^xsd:string ;
+    foaf:name "ELSEVIER" ;
+    foaf:homepage <https://dev.elsevier.com/> ;
+    odrl:assignerOf :agreement01 .
+
+:customer a tosl:Customer ;
+    dcterms:description "API consumer under the Elsevier API Service Agreement."^^xsd:string .
+
+:apiService a tosl:Service ;
+    dcterms:description "Elsevier API service."^^xsd:string .
+
+:permission01 a odrl:Permission ;
+    dcterms:description "General permission to use the Elsevier API service subject to the Agreement."^^xsd:string ;
+    odrl:action odrl:use ;
+    odrl:target :apiService ;
+    odrl:assignee :customer .
+
+:liability01 a tosl:Liability ;
+    dcterms:description "API service is provided on an 'as is' and 'as available' basis without warranties of any kind; liability for any matters related to the service is disclaimed."^^xsd:string ;
+    tosl:liableParty :Elsevier ;
+    tosl:targetParty :customer ;
+    rdf:value tosl:anyLiability ;
+    tosl:limitation [
+        a odrl:Constraint ;
+        odrl:leftOperand odrl:payAmount ;
+        odrl:operator odrl:eq ;
+        odrl:rightOperand "0.00"^^xsd:decimal ;
+        odrl:unit <http://dbpedia.org/resource/United_States_dollar>
+    ] .

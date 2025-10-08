@@ -1,0 +1,39 @@
+{
+  "file": "phase3/results/use_case_18.ttl",
+  "deontic": {
+    "total_rules": 0,
+    "duties": [],
+    "permissions": [],
+    "prohibitions": []
+  },
+  "unfair_terms": {
+    "change": [],
+    "termination": [],
+    "contract_by_use": [],
+    "choice_of_law": [],
+    "jurisdiction": [],
+    "arbitration": [],
+    "content_removal": [],
+    "limitation_of_liability": [
+      {
+        "liability": ":liability01",
+        "description": "Except as expressly stated in this Agreement, each party disclaims all liability to the other party in connection with the parties' performance of this Agreement and in no event will the infringing party be liable to the other party for special, indirect or consequential damages including but not limited to loss of profits, loss of business or unfitness for user purposes.",
+        "limitationOn": ":apiAgreement",
+        "type": "tosl:anyIndirectDamage",
+        "liableParty": ":Elsevier"
+      },
+      {
+        "liability": ":liability01",
+        "description": "Except as expressly stated in this Agreement, each party disclaims all liability to the other party in connection with the parties' performance of this Agreement and in no event will the infringing party be liable to the other party for special, indirect or consequential damages including but not limited to loss of profits, loss of business or unfitness for user purposes.",
+        "limitationOn": ":apiAgreement",
+        "type": "tosl:anyLoss",
+        "liableParty": ":Elsevier"
+      }
+    ]
+  },
+  "_meta": {
+    "calls": 12,
+    "ok": 12,
+    "ms_total": 12474
+  }
+}

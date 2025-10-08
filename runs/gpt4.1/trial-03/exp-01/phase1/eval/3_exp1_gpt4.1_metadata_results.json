@@ -1,0 +1,1116 @@
+{
+  "meta": {
+    "pred_path": "phase1/results/use_cases_elsevier_classifieds.json",
+    "exp_path": "../../../../data/use_cases_elsevier_classifieds_expected.json",
+    "n_cases_all": 20,
+    "n_cases_eval": 20,
+    "normalize_actions": false,
+    "normalize_roles": false,
+    "normalize_assets": true,
+    "ignored": [
+      "description"
+    ],
+    "timestamp": 1759918971
+  },
+  "per_case": [
+    {
+      "id": "use_case_1",
+      "pred": {
+        "type": "obligation",
+        "party": "customer",
+        "action": "tosl:claim",
+        "asset": "agreement"
+      },
+      "exp": {
+        "type": "obligation",
+        "party": "customer",
+        "action": "tosl:consent",
+        "asset": "agreement"
+      },
+      "match": {
+        "type": 1,
+        "party": 1,
+        "action": 0,
+        "asset": 1
+      }
+    },
+    {
+      "id": "use_case_2",
+      "pred": {
+        "type": "obligation",
+        "party": "customer",
+        "action": "odrl:accepttracking",
+        "asset": "agreement"
+      },
+      "exp": {
+        "type": "obligation",
+        "party": "customer",
+        "action": "tosl:consent",
+        "asset": "agreement"
+      },
+      "match": {
+        "type": 1,
+        "party": 1,
+        "action": 0,
+        "asset": 1
+      }
+    },
+    {
+      "id": "use_case_3",
+      "pred": {
+        "type": "obligation",
+        "party": "provider",
+        "action": "odrl:inform",
+        "asset": "agreement"
+      },
+      "exp": {
+        "type": "permission",
+        "party": "provider",
+        "action": "odrl:modify",
+        "asset": "agreement"
+      },
+      "match": {
+        "type": 0,
+        "party": 1,
+        "action": 0,
+        "asset": 1
+      }
+    },
+    {
+      "id": "use_case_4",
+      "pred": {
+        "type": "obligation",
+        "party": "provider",
+        "action": "odrl:inform",
+        "asset": "agreement"
+      },
+      "exp": {
+        "type": "obligation",
+        "party": "provider",
+        "action": "tosl:publish",
+        "asset": "agreement"
+      },
+      "match": {
+        "type": 1,
+        "party": 1,
+        "action": 0,
+        "asset": 1
+      }
+    },
+    {
+      "id": "use_case_5",
+      "pred": {
+        "type": "obligation",
+        "party": "provider",
+        "action": "odrl:inform",
+        "asset": "modifications"
+      },
+      "exp": {
+        "type": "obligation",
+        "party": "provider",
+        "action": "tosl:publish",
+        "asset": "modifications"
+      },
+      "match": {
+        "type": 1,
+        "party": 1,
+        "action": 0,
+        "asset": 1
+      }
+    },
+    {
+      "id": "use_case_6",
+      "pred": {
+        "type": "permission",
+        "party": "customer",
+        "action": "odrl:use",
+        "asset": "apis and related materials"
+      },
+      "exp": {
+        "type": "permission",
+        "party": "customer",
+        "action": "odrl:use",
+        "asset": "api service"
+      },
+      "match": {
+        "type": 1,
+        "party": 1,
+        "action": 1,
+        "asset": 0
+      }
+    },
+    {
+      "id": "use_case_7",
+      "pred": {
+        "type": "permission",
+        "party": "provider",
+        "action": "tosl:terminate",
+        "asset": "api service"
+      },
+      "exp": {
+        "type": "permission",
+        "party": "provider",
+        "action": "tosl:terminate",
+        "asset": "api service"
+      },
+      "match": {
+        "type": 1,
+        "party": 1,
+        "action": 1,
+        "asset": 1
+      }
+    },
+    {
+      "id": "use_case_8",
+      "pred": {
+        "type": "permission",
+        "party": "provider",
+        "action": "tosl:remove",
+        "asset": "api service"
+      },
+      "exp": {
+        "type": "permission",
+        "party": "provider",
+        "action": "tosl:terminate",
+        "asset": "api service"
+      },
+      "match": {
+        "type": 1,
+        "party": 1,
+        "action": 0,
+        "asset": 1
+      }
+    },
+    {
+      "id": "use_case_9",
+      "pred": {
+        "type": "permission",
+        "party": "provider",
+        "action": "tosl:remove",
+        "asset": "api service"
+      },
+      "exp": {
+        "type": "permission",
+        "party": "provider",
+        "action": "tosl:terminate",
+        "asset": "api service"
+      },
+      "match": {
+        "type": 1,
+        "party": 1,
+        "action": 0,
+        "asset": 1
+      }
+    },
+    {
+      "id": "use_case_10",
+      "pred": {
+        "type": "prohibition",
+        "party": "provider",
+        "action": "odrl:use",
+        "asset": "api service"
+      },
+      "exp": {
+        "type": "permission",
+        "party": "customer",
+        "action": "odrl:use",
+        "asset": "api service"
+      },
+      "match": {
+        "type": 0,
+        "party": 0,
+        "action": 1,
+        "asset": 1
+      }
+    },
+    {
+      "id": "use_case_11",
+      "pred": {
+        "type": "prohibition",
+        "party": "customer",
+        "action": "odrl:use",
+        "asset": "other api keys"
+      },
+      "exp": {
+        "type": "permission",
+        "party": "customer",
+        "action": "odrl:use",
+        "asset": "api service"
+      },
+      "match": {
+        "type": 0,
+        "party": 1,
+        "action": 1,
+        "asset": 0
+      }
+    },
+    {
+      "id": "use_case_12",
+      "pred": {
+        "type": "obligation",
+        "party": "customer",
+        "action": "odrl:use",
+        "asset": "api service"
+      },
+      "exp": {
+        "type": "permission",
+        "party": "customer",
+        "action": "odrl:use",
+        "asset": "api service"
+      },
+      "match": {
+        "type": 0,
+        "party": 1,
+        "action": 1,
+        "asset": 1
+      }
+    },
+    {
+      "id": "use_case_13",
+      "pred": {
+        "type": "prohibition",
+        "party": "customer",
+        "action": "odrl:distribute",
+        "asset": "api service"
+      },
+      "exp": {
+        "type": "prohibition",
+        "party": "customer",
+        "action": "odrl:distribute",
+        "asset": "api service"
+      },
+      "match": {
+        "type": 1,
+        "party": 1,
+        "action": 1,
+        "asset": 1
+      }
+    },
+    {
+      "id": "use_case_14",
+      "pred": {
+        "type": "liability",
+        "party": "customer",
+        "action": "unspecified",
+        "asset": "api service"
+      },
+      "exp": {
+        "type": "liability",
+        "party": "customer",
+        "action": "unspecified",
+        "asset": "direct damages"
+      },
+      "match": {
+        "type": 1,
+        "party": 1,
+        "action": 1,
+        "asset": 0
+      }
+    },
+    {
+      "id": "use_case_15",
+      "pred": {
+        "type": "obligation",
+        "party": "customer",
+        "action": "odrl:obtainconsent",
+        "asset": "provider brand features"
+      },
+      "exp": {
+        "type": "permission",
+        "party": "customer",
+        "action": "odrl:use",
+        "asset": "logos and brand features"
+      },
+      "match": {
+        "type": 0,
+        "party": 1,
+        "action": 0,
+        "asset": 0
+      }
+    },
+    {
+      "id": "use_case_16",
+      "pred": {
+        "type": "prohibition",
+        "party": "provider",
+        "action": "odrl:display",
+        "asset": "advertising"
+      },
+      "exp": {
+        "type": "permission",
+        "party": "customer",
+        "action": "odrl:display",
+        "asset": "advertising"
+      },
+      "match": {
+        "type": 0,
+        "party": 0,
+        "action": 1,
+        "asset": 1
+      }
+    },
+    {
+      "id": "use_case_17",
+      "pred": {
+        "type": "liability",
+        "party": "provider",
+        "action": "unspecified",
+        "asset": "api service"
+      },
+      "exp": {
+        "type": "prohibition",
+        "party": "customer",
+        "action": "tosl:procedure",
+        "asset": "api service"
+      },
+      "match": {
+        "type": 0,
+        "party": 0,
+        "action": 0,
+        "asset": 1
+      }
+    },
+    {
+      "id": "use_case_18",
+      "pred": {
+        "type": "liability",
+        "party": "both",
+        "action": "unspecified",
+        "asset": "damages"
+      },
+      "exp": {
+        "type": "liability",
+        "party": "both",
+        "action": "unspecified",
+        "asset": "indirect damages"
+      },
+      "match": {
+        "type": 1,
+        "party": 1,
+        "action": 1,
+        "asset": 0
+      }
+    },
+    {
+      "id": "use_case_19",
+      "pred": {
+        "type": "obligation",
+        "party": "both",
+        "action": "tosl:terminate",
+        "asset": "agreement"
+      },
+      "exp": {
+        "type": "permission",
+        "party": "both",
+        "action": "tosl:terminate",
+        "asset": "agreement"
+      },
+      "match": {
+        "type": 0,
+        "party": 1,
+        "action": 1,
+        "asset": 1
+      }
+    },
+    {
+      "id": "use_case_20",
+      "pred": {
+        "type": "dispute resolution",
+        "party": "both",
+        "action": "unspecified",
+        "asset": "agreement"
+      },
+      "exp": {
+        "type": "dispute resolution",
+        "party": "both",
+        "action": "unspecified",
+        "asset": "agreement"
+      },
+      "match": {
+        "type": 1,
+        "party": 1,
+        "action": 1,
+        "asset": 1
+      }
+    }
+  ],
+  "per_field": {
+    "type": {
+      "labels": [
+        "dispute resolution",
+        "liability",
+        "obligation",
+        "permission",
+        "prohibition"
+      ],
+      "confusion": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          4,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          4,
+          4,
+          3
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          1
+        ]
+      ],
+      "per_label": {
+        "precision": {
+          "dispute resolution": 1.0,
+          "liability": 0.6666666666666666,
+          "obligation": 0.5,
+          "permission": 1.0,
+          "prohibition": 0.25
+        },
+        "recall": {
+          "dispute resolution": 1.0,
+          "liability": 1.0,
+          "obligation": 1.0,
+          "permission": 0.36363636363636365,
+          "prohibition": 0.5
+        },
+        "f1": 0.3333333333333333,
+        "support": {
+          "dispute resolution": 1,
+          "liability": 2,
+          "obligation": 4,
+          "permission": 11,
+          "prohibition": 2
+        }
+      },
+      "micro": {
+        "precision": 0.6,
+        "recall": 0.6,
+        "f1": 0.6
+      },
+      "macro": {
+        "precision": 0.6833333333333333,
+        "recall": 0.7727272727272727,
+        "f1": 0.6666666666666667
+      },
+      "weighted": {
+        "precision": 0.7916666666666666,
+        "recall": 0.6,
+        "f1": 0.59
+      },
+      "accuracy": 0.6,
+      "total": 20
+    },
+    "party": {
+      "labels": [
+        "both",
+        "customer",
+        "provider"
+      ],
+      "confusion": [
+        [
+          3,
+          0,
+          0
+        ],
+        [
+          0,
+          8,
+          3
+        ],
+        [
+          0,
+          0,
+          6
+        ]
+      ],
+      "per_label": {
+        "precision": {
+          "both": 1.0,
+          "customer": 1.0,
+          "provider": 0.6666666666666666
+        },
+        "recall": {
+          "both": 1.0,
+          "customer": 0.7272727272727273,
+          "provider": 1.0
+        },
+        "f1": 0.8,
+        "support": {
+          "both": 3,
+          "customer": 11,
+          "provider": 6
+        }
+      },
+      "micro": {
+        "precision": 0.85,
+        "recall": 0.85,
+        "f1": 0.85
+      },
+      "macro": {
+        "precision": 0.8888888888888888,
+        "recall": 0.9090909090909092,
+        "f1": 0.8807017543859649
+      },
+      "weighted": {
+        "precision": 0.9,
+        "recall": 0.85,
+        "f1": 0.8531578947368421
+      },
+      "accuracy": 0.85,
+      "total": 20
+    },
+    "action": {
+      "labels": [
+        "odrl:accepttracking",
+        "odrl:display",
+        "odrl:distribute",
+        "odrl:inform",
+        "odrl:modify",
+        "odrl:obtainconsent",
+        "odrl:use",
+        "tosl:claim",
+        "tosl:consent",
+        "tosl:procedure",
+        "tosl:publish",
+        "tosl:remove",
+        "tosl:terminate",
+        "unspecified"
+      ],
+      "confusion": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          4,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3
+        ]
+      ],
+      "per_label": {
+        "precision": {
+          "odrl:accepttracking": 0.0,
+          "odrl:display": 1.0,
+          "odrl:distribute": 1.0,
+          "odrl:inform": 0.0,
+          "odrl:modify": 0.0,
+          "odrl:obtainconsent": 0.0,
+          "odrl:use": 1.0,
+          "tosl:claim": 0.0,
+          "tosl:consent": 0.0,
+          "tosl:procedure": 0.0,
+          "tosl:publish": 0.0,
+          "tosl:remove": 0.0,
+          "tosl:terminate": 1.0,
+          "unspecified": 0.75
+        },
+        "recall": {
+          "odrl:accepttracking": 0.0,
+          "odrl:display": 1.0,
+          "odrl:distribute": 1.0,
+          "odrl:inform": 0.0,
+          "odrl:modify": 0.0,
+          "odrl:obtainconsent": 0.0,
+          "odrl:use": 0.8,
+          "tosl:claim": 0.0,
+          "tosl:consent": 0.0,
+          "tosl:procedure": 0.0,
+          "tosl:publish": 0.0,
+          "tosl:remove": 0.0,
+          "tosl:terminate": 0.5,
+          "unspecified": 1.0
+        },
+        "f1": 0.8571428571428571,
+        "support": {
+          "odrl:accepttracking": 0,
+          "odrl:display": 1,
+          "odrl:distribute": 1,
+          "odrl:inform": 0,
+          "odrl:modify": 1,
+          "odrl:obtainconsent": 0,
+          "odrl:use": 5,
+          "tosl:claim": 0,
+          "tosl:consent": 2,
+          "tosl:procedure": 1,
+          "tosl:publish": 2,
+          "tosl:remove": 0,
+          "tosl:terminate": 4,
+          "unspecified": 3
+        }
+      },
+      "micro": {
+        "precision": 0.55,
+        "recall": 0.55,
+        "f1": 0.55
+      },
+      "macro": {
+        "precision": 0.3392857142857143,
+        "recall": 0.3071428571428571,
+        "f1": 0.3151927437641723
+      },
+      "weighted": {
+        "precision": 0.6625,
+        "recall": 0.55,
+        "f1": 0.584126984126984
+      },
+      "accuracy": 0.55,
+      "total": 20
+    },
+    "asset": {
+      "labels": [
+        "advertising",
+        "agreement",
+        "api service",
+        "apis and related materials",
+        "damages",
+        "direct damages",
+        "indirect damages",
+        "logos and brand features",
+        "modifications",
+        "other api keys",
+        "provider brand features"
+      ],
+      "confusion": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          6,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          7,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "per_label": {
+        "precision": {
+          "advertising": 1.0,
+          "agreement": 1.0,
+          "api service": 0.875,
+          "apis and related materials": 0.0,
+          "damages": 0.0,
+          "direct damages": 0.0,
+          "indirect damages": 0.0,
+          "logos and brand features": 0.0,
+          "modifications": 1.0,
+          "other api keys": 0.0,
+          "provider brand features": 0.0
+        },
+        "recall": {
+          "advertising": 1.0,
+          "agreement": 1.0,
+          "api service": 0.7777777777777778,
+          "apis and related materials": 0.0,
+          "damages": 0.0,
+          "direct damages": 0.0,
+          "indirect damages": 0.0,
+          "logos and brand features": 0.0,
+          "modifications": 1.0,
+          "other api keys": 0.0,
+          "provider brand features": 0.0
+        },
+        "f1": 0.0,
+        "support": {
+          "advertising": 1,
+          "agreement": 6,
+          "api service": 9,
+          "apis and related materials": 0,
+          "damages": 0,
+          "direct damages": 1,
+          "indirect damages": 1,
+          "logos and brand features": 1,
+          "modifications": 1,
+          "other api keys": 0,
+          "provider brand features": 0
+        }
+      },
+      "micro": {
+        "precision": 0.75,
+        "recall": 0.75,
+        "f1": 0.75
+      },
+      "macro": {
+        "precision": 0.3522727272727273,
+        "recall": 0.3434343434343434,
+        "f1": 0.34759358288770054
+      },
+      "weighted": {
+        "precision": 0.79375,
+        "recall": 0.75,
+        "f1": 0.7705882352941177
+      },
+      "accuracy": 0.75,
+      "total": 20
+    }
+  }
+}

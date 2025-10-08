@@ -1,0 +1,71 @@
+@prefix : <http://example.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@base <http://example.com> .
+
+:Elsevier a tosl:Provider ;
+    dcterms:description "Elsevier is a global information analytics business specializing in science and health."^^xsd:string ;
+    foaf:name "ELSEVIER" ;
+    foaf:homepage <https://dev.elsevier.com/> ;
+    odrl:assignerOf :agreement01 .
+
+:customer a tosl:Customer ;
+    dcterms:description "This party represents the API user accepting Elsevier's terms." .
+
+:institutionAgreement a odrl:Asset ;
+    dcterms:description "Agreement between Elsevier and your institution, company, or organization."^^xsd:string .
+
+:specificUseCaseAgreement a odrl:Asset ;
+    dcterms:description "Agreement between Elsevier and you for your specific use case when no institutional agreement applies."^^xsd:string .
+
+:institutionAgreementApplicable a skos:Concept .
+:institutionAgreementNotApplicable a skos:Concept .
+
+:obligationAcceptThisAgreement a odrl:Duty ;
+    dcterms:description "You accept and agree to the terms and conditions of this Agreement." ;
+    odrl:action tosl:consent ;
+    odrl:target :agreement01 ;
+    odrl:assignee :customer .
+
+:obligationInstitutionAgreement a odrl:Duty ;
+    dcterms:description "You accept and agree to the terms and conditions of the agreement between Elsevier and your institution, company, or organization, when applicable." ;
+    odrl:action tosl:consent ;
+    odrl:target :institutionAgreement ;
+    odrl:assignee :customer ;
+    odrl:constraint [
+        a odrl:Constraint ;
+        odrl:leftOperand odrl:event ;
+        odrl:operator odrl:eq ;
+        odrl:rightOperand :institutionAgreementApplicable
+    ] .
+
+:obligationSpecificUseCase a odrl:Duty ;
+    dcterms:description "If an institutional agreement does not apply, you accept and agree to the specific use-case terms agreed between you and Elsevier." ;
+    odrl:action tosl:consent ;
+    odrl:target :specificUseCaseAgreement ;
+    odrl:assignee :customer ;
+    odrl:constraint [
+        a odrl:Constraint ;
+        odrl:leftOperand odrl:event ;
+        odrl:operator odrl:eq ;
+        odrl:rightOperand :institutionAgreementNotApplicable
+    ] .
+
+:agreement01 a odrl:Agreement, odrl:Asset ;
+    odrl:profile <https://w3id.org/tosl/> ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "Acceptance: You agree to the terms of this Agreement and to either your institution’s agreement with Elsevier or, if not applicable, the specific use-case terms agreed between you and Elsevier."^^xsd:string ;
+    dcterms:creator "ELSEVIER"^^xsd:string ;
+    dcterms:rightsHolder :Elsevier ;
+    dcterms:issued "2017-01-01"^^xsd:date ;
+    odrl:obligation :obligationAcceptThisAgreement, :obligationInstitutionAgreement, :obligationSpecificUseCase ;
+    odrl:assigner :Elsevier .

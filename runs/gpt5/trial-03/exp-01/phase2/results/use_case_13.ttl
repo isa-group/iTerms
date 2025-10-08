@@ -1,0 +1,58 @@
+@prefix : <http://example.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@base <http://example.com> .
+
+:agreement01 a odrl:Agreement, odrl:Asset ;
+    odrl:profile <https://w3id.org/tosl/> ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "Clause 3.1.4: Unauthorized redistribution of Elsevier content is not permitted; all rights in Elsevier content and any derivative works remain with Elsevier and its suppliers, except as expressly set forth in the Agreement."^^xsd:string ;
+    dcterms:creator "ELSEVIER"^^xsd:string ;
+    dcterms:rightsHolder :Elsevier ;
+    dcterms:issued "2017"^^xsd:gYear ;
+    odrl:prohibition :prohibition01 ;
+    odrl:assigner :Elsevier .
+
+:Elsevier a tosl:Provider ;
+    foaf:name "ELSEVIER"^^xsd:string ;
+    dcterms:description "The provider and rights holder of Elsevier content."^^xsd:string .
+
+:customer a tosl:Customer ;
+    dcterms:description "Developer using Elsevier APIs under this Agreement."^^xsd:string .
+
+:elsevierContent a odrl:Asset ;
+    dcterms:description "Elsevier content accessible via the APIs, including any derivative works based upon such content."^^xsd:string .
+
+:prohibition01 a odrl:Prohibition ;
+    dcterms:description "Unauthorized redistribution of Elsevier content is not permitted."^^xsd:string ;
+    odrl:action odrl:distribute ;
+    odrl:target :elsevierContent ;
+    odrl:assignee :customer ;
+    odrl:assigner :Elsevier ;
+    odrl:constraint [
+        a odrl:LogicalConstraint ;
+        odrl:and (
+            [
+                a odrl:Constraint ;
+                odrl:leftOperand tosl:consentType ;
+                odrl:operator odrl:neq ;
+                odrl:rightOperand tosl:explicitConsent
+            ]
+            [
+                a odrl:Constraint ;
+                odrl:leftOperand tosl:consentType ;
+                odrl:operator odrl:neq ;
+                odrl:rightOperand tosl:writtenPermission
+            ]
+        )
+    ] .

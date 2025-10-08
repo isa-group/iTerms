@@ -1,0 +1,50 @@
+@prefix : <http://example.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@base <http://example.com> .
+
+:agreement01 a odrl:Agreement ;
+    odrl:profile <https://w3id.org/tosl/> ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "Terms governing use of Elsevier APIs and related services."^^xsd:string ;
+    dcterms:creator "ELSEVIER"^^xsd:string ;
+    dcterms:rightsHolder :ELSEVIER ;
+    dcterms:issued "2017-01-01"^^xsd:date ;
+    odrl:permission :permission01 ;
+    odrl:assigner :ELSEVIER .
+
+:ELSEVIER a tosl:Provider ;
+    dcterms:description "Elsevier is a global information analytics business specializing in science and health."^^xsd:string ;
+    foaf:name "ELSEVIER" ;
+    foaf:homepage <https://www.elsevier.com/> ;
+    odrl:assignerOf :agreement01 .
+
+:developer a tosl:BusinessCustomer ;
+    dcterms:description "Developer using Elsevier APIs under this Agreement."^^xsd:string .
+
+:apiServices a tosl:Service ;
+    dcterms:description "Elsevier APIs and any related services."^^xsd:string .
+
+:permission01 a odrl:Permission ;
+    dcterms:description "Elsevier may block, change, suspend, remove, disable, or otherwise terminate access to the APIs and any of its services upon reasonable notice to the Developer."^^xsd:string ;
+    odrl:action tosl:terminate ;
+    odrl:target :apiServices ;
+    odrl:assignee :ELSEVIER ;
+    odrl:duty [
+        a odrl:Duty ;
+        dcterms:description "Provide reasonable notice to the Developer before terminating or disabling access."^^xsd:string ;
+        odrl:action odrl:inform ;
+        odrl:target :apiServices ;
+        odrl:assignee :ELSEVIER ;
+        odrl:informedParty :developer
+    ] .

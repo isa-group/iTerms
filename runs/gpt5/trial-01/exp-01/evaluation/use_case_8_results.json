@@ -1,0 +1,57 @@
+{
+  "file": "phase3/results/use_case_8.ttl",
+  "deontic": {
+    "total_rules": 2,
+    "duties": [
+      {
+        "id": "nbc59bd19ab714666b5eec7631501cf77b2",
+        "actions": [
+          "odrl:inform"
+        ],
+        "targets": [
+          ":apiServices"
+        ],
+        "assignee": ":Elsevier",
+        "assigner": null,
+        "description": null
+      }
+    ],
+    "permissions": [
+      {
+        "id": ":permission01",
+        "actions": [
+          "tosl:remove"
+        ],
+        "targets": [
+          ":apiServices"
+        ],
+        "assignee": ":Elsevier",
+        "assigner": null,
+        "description": null
+      }
+    ],
+    "prohibitions": []
+  },
+  "unfair_terms": {
+    "change": [],
+    "termination": [],
+    "contract_by_use": [],
+    "choice_of_law": [],
+    "jurisdiction": [],
+    "arbitration": [],
+    "content_removal": [
+      {
+        "permission": ":permission01",
+        "action": "tosl:remove",
+        "assignee": ":Elsevier",
+        "target": ":apiServices"
+      }
+    ],
+    "limitation_of_liability": []
+  },
+  "_meta": {
+    "calls": 12,
+    "ok": 12,
+    "ms_total": 4972
+  }
+}

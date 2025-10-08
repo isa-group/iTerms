@@ -1,0 +1,75 @@
+{
+  "file": "phase3/results/use_case_19.ttl",
+  "deontic": {
+    "total_rules": 4,
+    "duties": [
+      {
+        "id": ":obligation01",
+        "actions": [
+          "tosl:consent"
+        ],
+        "targets": [
+          ":agreement01"
+        ],
+        "assignee": ":Developer",
+        "assigner": null,
+        "description": null
+      },
+      {
+        "id": ":obligation02",
+        "actions": [
+          "tosl:procedure"
+        ],
+        "targets": [
+          ":agreement01"
+        ],
+        "assignee": ":Developer",
+        "assigner": null,
+        "description": null
+      }
+    ],
+    "permissions": [
+      {
+        "id": ":permission01",
+        "actions": [
+          "odrl:use"
+        ],
+        "targets": [
+          ":agreement01"
+        ],
+        "assignee": ":Developer",
+        "assigner": null,
+        "description": null
+      }
+    ],
+    "prohibitions": [
+      {
+        "id": ":prohibition01",
+        "actions": [
+          "odrl:use"
+        ],
+        "targets": [
+          ":agreement01"
+        ],
+        "assignee": ":Developer",
+        "assigner": null,
+        "description": null
+      }
+    ]
+  },
+  "unfair_terms": {
+    "change": [],
+    "termination": [],
+    "contract_by_use": [],
+    "choice_of_law": [],
+    "jurisdiction": [],
+    "arbitration": [],
+    "content_removal": [],
+    "limitation_of_liability": []
+  },
+  "_meta": {
+    "calls": 12,
+    "ok": 12,
+    "ms_total": 11971
+  }
+}

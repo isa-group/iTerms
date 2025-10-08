@@ -1,0 +1,95 @@
+@prefix : <http://example.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@base <http://example.com> .
+
+:agreement01 a odrl:Agreement, odrl:Asset ;
+    odrl:profile <https://w3id.org/tosl/> ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "Governing law and jurisdiction clause for the Elsevier API Service Agreement: Dutch law and exclusive jurisdiction of Dutch courts, except where local law requires otherwise."^^xsd:string ;
+    dcterms:creator "ELSEVIER"^^xsd:string ;
+    dcterms:rightsHolder :ELSEVIER ;
+    dcterms:issued "2017"^^xsd:gYear ;
+    odrl:obligation :obligation01, :obligation02 ;
+    tosl:onDispute :litigationNL01, :litigationNL02 ;
+    odrl:assigner :ELSEVIER .
+
+:ELSEVIER a tosl:Provider ;
+    dcterms:description "ELSEVIER is the provider under this Agreement."^^xsd:string ;
+    foaf:name "ELSEVIER" .
+
+:customer a tosl:Customer ;
+    dcterms:description "Customer party to the Elsevier API Service Agreement."^^xsd:string .
+
+:businessCustomer a tosl:BusinessCustomer ;
+    dcterms:description "Business customer party to the Elsevier API Service Agreement."^^xsd:string .
+
+:netherlandsCourts a tosl:Jurisdiction .
+:netherlandsLaw a tosl:Law .
+
+:obligation01 a odrl:Duty ;
+    dcterms:description "Customer irrevocably consents to the exclusive jurisdiction of the courts of The Netherlands and to Dutch governing law, except where local law requires otherwise."^^xsd:string ;
+    odrl:action tosl:consent ;
+    odrl:target :agreement01 ;
+    odrl:assignee :customer .
+
+:obligation02 a odrl:Duty ;
+    dcterms:description "Elsevier irrevocably consents to the exclusive jurisdiction of the courts of The Netherlands and to Dutch governing law, except where local law requires otherwise."^^xsd:string ;
+    odrl:action tosl:consent ;
+    odrl:target :agreement01 ;
+    odrl:assignee :ELSEVIER .
+
+:litigationNL01 a tosl:Litigation ;
+    dcterms:description "Disputes arising out of or related to this Agreement are subject to the exclusive jurisdiction of the courts of The Netherlands and governed by the laws of The Netherlands, except where local law requires otherwise."^^xsd:string ;
+    tosl:targetParty :customer ;
+    tosl:takesPlaceIn :netherlandsCourts ;
+    tosl:governedBy :netherlandsLaw ;
+    tosl:condition [
+        a odrl:LogicalConstraint ;
+        odrl:and (
+            [
+                a odrl:Constraint ;
+                odrl:leftOperand odrl:event ;
+                odrl:operator odrl:eq ;
+                odrl:rightOperand :disputeArisingFromAgreement
+            ]
+            [
+                a odrl:Constraint ;
+                odrl:leftOperand tosl:compliance ;
+                odrl:operator odrl:neq ;
+                odrl:rightOperand :contraryLocalLawRequirement
+            ]
+        )
+    ] .
+
+:litigationNL02 a tosl:Litigation ;
+    dcterms:description "Disputes arising out of or related to this Agreement are subject to the exclusive jurisdiction of the courts of The Netherlands and governed by the laws of The Netherlands, except where local law requires otherwise."^^xsd:string ;
+    tosl:targetParty :businessCustomer ;
+    tosl:takesPlaceIn :netherlandsCourts ;
+    tosl:governedBy :netherlandsLaw ;
+    tosl:condition [
+        a odrl:LogicalConstraint ;
+        odrl:and (
+            [
+                a odrl:Constraint ;
+                odrl:leftOperand odrl:event ;
+                odrl:operator odrl:eq ;
+                odrl:rightOperand :disputeArisingFromAgreement
+            ]
+            [
+                a odrl:Constraint ;
+                odrl:leftOperand tosl:compliance ;
+                odrl:operator odrl:neq ;
+                odrl:rightOperand :contraryLocalLawRequirement
+            ]
+        )
+    ] .

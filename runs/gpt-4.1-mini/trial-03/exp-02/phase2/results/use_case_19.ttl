@@ -1,0 +1,35 @@
+@prefix : <http://example.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@base <http://example.com> .
+
+:ELSEVIER a tosl:Provider ;
+    dcterms:description "ELSEVIER" .
+
+:agreement a odrl:Asset ;
+    dcterms:title "API SERVICE AGREEMENT" ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:issued "2017"^^xsd:gYear .
+
+:obligation01 a odrl:Duty ;
+    dcterms:description "Both parties are obliged to terminate the Agreement in writing or deactivate the API Key to end the term of the Agreement." ;
+    odrl:action tosl:terminate ;
+    odrl:target :agreement ;
+    odrl:assignee :ELSEVIER .
+
+:obligation02 a odrl:Duty ;
+    dcterms:description "Both parties are obliged to terminate the Agreement in writing or deactivate the API Key to end the term of the Agreement." ;
+    odrl:action tosl:terminate ;
+    odrl:target :agreement ;
+    odrl:assignee :developer .
+
+:developer a tosl:Customer ;
+    dcterms:description "Developer who accepts the Agreement and uses the API." .

@@ -1,0 +1,68 @@
+@prefix : <http://example.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix tosl: <https://w3id.org/tosl/> .
+@base <http://example.com> .
+
+:agreement01 a odrl:Agreement ;
+    odrl:profile <https://w3id.org/tosl/> ;
+    dcterms:source <https://dev.elsevier.com/api_service_agreement.html> ;
+    dcterms:title "API SERVICE AGREEMENT"^^xsd:string ;
+    dcterms:description "Clause 3.1.2: the Application will use the API Key issued by Elsevier upon execution of this Agreement, and no other API Key issued for use by other applications and/or to other developers."^^xsd:string ;
+    dcterms:creator "ELSEVIER"^^xsd:string ;
+    dcterms:rightsHolder :ELSEVIER ;
+    dcterms:issued "2017-01-01"^^xsd:date ;
+    odrl:obligation :obligation01 ;
+    odrl:assigner :ELSEVIER .
+
+:ELSEVIER a tosl:Provider ;
+    dcterms:description "Elsevier is the provider of the APIs and related services."^^xsd:string .
+
+:customer a tosl:Customer ;
+    dcterms:description "The customer/developer using Elsevier APIs under this Agreement."^^xsd:string .
+
+:application a odrl:Asset ;
+    dcterms:description "The customer's application integrating Elsevier APIs."^^xsd:string .
+
+:apiKey a odrl:Asset ;
+    dcterms:description "The API Key issued by Elsevier for the customer's application under this Agreement."^^xsd:string .
+
+:issuedUnderPolicy a odrl:LeftOperand .
+:issuedForApplication a odrl:LeftOperand .
+:issuedToParty a odrl:LeftOperand .
+
+:obligation01 a odrl:Duty ;
+    dcterms:description "Customer must ensure the Application uses only the API Key issued by Elsevier upon execution of this Agreement and not any API Key issued for other applications or to other developers."^^xsd:string ;
+    odrl:action odrl:use ;
+    odrl:target :apiKey ;
+    odrl:assignee :customer ;
+    odrl:constraint [
+        a odrl:LogicalConstraint ;
+        odrl:and (
+            [
+                a odrl:Constraint ;
+                odrl:leftOperand :issuedUnderPolicy ;
+                odrl:operator odrl:eq ;
+                odrl:rightOperand :agreement01
+            ]
+            [
+                a odrl:Constraint ;
+                odrl:leftOperand :issuedForApplication ;
+                odrl:operator odrl:eq ;
+                odrl:rightOperand :application
+            ]
+            [
+                a odrl:Constraint ;
+                odrl:leftOperand :issuedToParty ;
+                odrl:operator odrl:eq ;
+                odrl:rightOperand :customer
+            ]
+        )
+    ] .
