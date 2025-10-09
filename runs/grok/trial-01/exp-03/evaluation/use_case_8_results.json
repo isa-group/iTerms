@@ -1,0 +1,57 @@
+{
+  "file": "phase3/results/use_case_8.ttl",
+  "deontic": {
+    "total_rules": 2,
+    "duties": [
+      {
+        "id": "n0a1e7154e92b49f2a1665b53aa5a82e8b2",
+        "actions": [
+          "odrl:inform"
+        ],
+        "targets": [
+          ":APIs"
+        ],
+        "assignee": ":Elsevier",
+        "assigner": null,
+        "description": null
+      }
+    ],
+    "permissions": [
+      {
+        "id": ":permission01",
+        "actions": [
+          "odrl:modify"
+        ],
+        "targets": [
+          ":APIs"
+        ],
+        "assignee": ":Elsevier",
+        "assigner": null,
+        "description": null
+      }
+    ],
+    "prohibitions": []
+  },
+  "unfair_terms": {
+    "change": [
+      {
+        "permission": ":permission01",
+        "description": "In a situation of breach of the terms and conditions of this Agreement, Elsevier reserves the right to block, change, suspend, remove or disable access to the APIs and any of its services at any time upon reasonable notice to Developer.",
+        "action": "odrl:modify",
+        "target": ":APIs"
+      }
+    ],
+    "termination": [],
+    "contract_by_use": [],
+    "choice_of_law": [],
+    "jurisdiction": [],
+    "arbitration": [],
+    "content_removal": [],
+    "limitation_of_liability": []
+  },
+  "_meta": {
+    "calls": 12,
+    "ok": 12,
+    "ms_total": 7256
+  }
+}

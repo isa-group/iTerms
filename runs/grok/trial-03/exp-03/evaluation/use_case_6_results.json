@@ -1,10 +1,10 @@
 {
-  "file": "phase3\\results\\use_case_6.ttl",
+  "file": "phase3/results/use_case_6.ttl",
   "deontic": {
     "total_rules": 2,
     "duties": [
       {
-        "id": "n0766db825a7346309ffb948bcdc3f147b2",
+        "id": "n97908ade660b42fcb8086893b497582db2",
         "actions": [
           "odrl:inform"
         ],
@@ -47,6 +47,6 @@
   "_meta": {
     "calls": 12,
     "ok": 12,
-    "ms_total": 10478
+    "ms_total": 12077
   }
 }

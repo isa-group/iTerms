@@ -1,5 +1,5 @@
 {
-  "file": "phase3\\results\\use_case_20.ttl",
+  "file": "phase3/results/use_case_20.ttl",
   "deontic": {
     "total_rules": 0,
     "duties": [],
@@ -31,6 +31,6 @@
   "_meta": {
     "calls": 12,
     "ok": 12,
-    "ms_total": 10697
+    "ms_total": 11741
   }
 }
